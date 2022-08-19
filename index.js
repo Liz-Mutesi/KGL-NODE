@@ -1,10 +1,11 @@
 const express = require("express")
 const path = require("path")
 const mongoose = require("mongoose")
+const workerRoutes = require("./routes/workerRoutes")
 const productRoutes = require("./routes/productRoutes")
+const homeRoutes = require("./routes/homeRoutes")
 const app = express()
 
-const productModel = require("./models/productModel")
 
 app.set("views", path.join(__dirname, "/views"))
 app.set("view engine", "pug")
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //db connect
 //mongodb://localhost:27017
-mongoose.connect("mongodb://localhost:27017/inventory",{
+mongoose.connect("mongodb://localhost:27017/company",{
     useNewUrlParser: true,
     useUnifiedTopology: true},
     (err) => {
@@ -23,90 +24,20 @@ mongoose.connect("mongodb://localhost:27017/inventory",{
     
     })
 
+    app.use("/", homeRoutes)
+    app.use("/workers", workerRoutes)
+    app.use("/product", productRoutes)
+
+//http://localhost:3000
+//http://localhost:3000/
+//http://localhost:3000/product/
+//http://localhost:3000/index/user
 
-    app.get("/", async(req, res)=> {
-        const products = await productModel.find({})
-        console.log(products)
-        res.render("index", {
-            title: "Produce",
-            data: products,
-        })
-    })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    app.listen(process.env.port || 3000)
-    console.log("server running on port" + (process.env.port || 3000))
     
+  
+
+
+
+// always the last line in the information
+app.listen(process.env.port || 3000)
+console.log("server running on port" + (process.env.port || 3000))

@@ -7,10 +7,12 @@ html(lang="en")
         title= title
     body
         div 
-            a(href="/workers") Team
+            each worker in workers
+                p= worker.name
+                p= worker.branch
+                p= worker.designation
+          
+
+            a(href="/workers/new") Manage Team
             br
-            br
-            a(href="/product") Sales
-            br
-            br
-            a(href="/product/new") Orders
+            a(href="/") Home
