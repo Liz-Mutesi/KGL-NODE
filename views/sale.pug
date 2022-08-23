@@ -1,0 +1,20 @@
+doctype html3
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title= title
+    body
+        div 
+            each order in sale
+                p= order.customer
+                p= order.type
+                p= order.item
+                p= order.quantity
+                p= order.price
+                p= order.amount
+
+            a(href="/sale/new") Add Another Order
+            br
+            a(href="/") Home

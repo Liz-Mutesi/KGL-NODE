@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 })
 router.get("/new", async (req, res) => {
     res.render("createProduct", {
-        title: "Inventory",
+        title: "New Item",
     })
 })
 router.post("/new", async (req, res) => {

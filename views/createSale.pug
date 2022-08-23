@@ -7,15 +7,19 @@ html(lang="en")
         title= title
     body
         div 
-            form(action="/product/new" method="POST")
-                h1 Add New Item
+            form(action="/sale/new" method="POST")
+                h1 Enter New Order 
                 div
-                    label Name:
+                    label Customer:
                     input(type="text" name="name")
                 br
                 div
-                    label Product Type:
+                    label Account Type:
                     input(type="text" name="type")
+                br
+                div
+                    label Product:
+                    input(type="text" name="quantity")
                 br
                 div
                     label Quantity:

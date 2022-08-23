@@ -3,6 +3,7 @@ const path = require("path")
 const mongoose = require("mongoose")
 const workerRoutes = require("./routes/workerRoutes")
 const productRoutes = require("./routes/productRoutes")
+const saleRoutes = require("./routes/saleRoutes")
 const homeRoutes = require("./routes/homeRoutes")
 const app = express()
 
@@ -27,6 +28,7 @@ mongoose.connect("mongodb://localhost:27017/company",{
     app.use("/", homeRoutes)
     app.use("/workers", workerRoutes)
     app.use("/product", productRoutes)
+    app.use("/sale", saleRoutes)
 
 //http://localhost:3000
 //http://localhost:3000/
