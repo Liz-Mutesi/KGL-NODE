@@ -9,11 +9,11 @@ html(lang="en")
         div 
             each item in product
                 p= item.name
-                p= item.description
+                p= item.type
                 p= item.quantity
                 p= item.price
                 p= item.amount
 
-            a(href="/product/new") Add Another Item
+            a(href="/product/product-form") Add Another Item
             br
             a(href="/") Home

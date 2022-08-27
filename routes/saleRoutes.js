@@ -19,9 +19,16 @@ router.get("/new-order", async (req, res) => {
 router.post("/new-order", async (req, res) => {
     try{
         const newSale = new saleModel(req.body)
-        await newSale.save()
-        res.redirect("/sale/new-order")
-        console.log(req.body)
+         newSale.save((err)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                res.redirect("/sale/new-order")
+            }
+        })
+        
+        // console.log(req.body)
 }
 catch(err){
     res.status(400).render("createSale")

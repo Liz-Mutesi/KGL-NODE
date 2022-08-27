@@ -7,11 +7,11 @@ html(lang="en")
         title= title
     body
         div 
-            form(action="/sale" method="POST")
+            form(action="/sale/new-order" method="POST")
                 h1 Enter New Order 
                 div
                     label Customer:
-                    input(type="text" name="name")
+                    input(type="text" name="customer")
                 br
                 div
                     label Account Type:
@@ -19,7 +19,7 @@ html(lang="en")
                 br
                 div
                     label Product:
-                    input(type="text" name="quantity")
+                    input(type="text" name="item")
                 br
                 div
                     label Quantity:
@@ -35,3 +35,5 @@ html(lang="en")
                 br
 
                 button(type="submit" style="background-color: blue; border-radius: 5px;") Submit
+                br
+                a(href="/") Home
