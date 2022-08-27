@@ -8,10 +8,11 @@ const homeRoutes = require("./routes/homeRoutes")
 const app = express()
 
 
+app.use(express.urlencoded({ extended: true }));
+
 app.set("views", path.join(__dirname, "/views"))
 app.set("view engine", "pug")
 
-app.use(express.urlencoded({ extended: true }));
 
 
 //db connect

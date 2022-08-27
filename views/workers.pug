@@ -10,9 +10,10 @@ html(lang="en")
             each worker in workers
                 p= worker.name
                 p= worker.branch
-                p= worker.designation
+                p= worker.position
+                p= worker.salary
           
 
-            a(href="/workers/new") Manage Team
+            a(href="/workers/worker-form") Manage Team
             br
             a(href="/") Home

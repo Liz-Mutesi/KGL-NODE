@@ -11,16 +11,21 @@ router.get("/", async (req, res) => {
 
     })
 })
-router.get("/new", async (req, res) => {
+router.get("/new-order", async (req, res) => {
     res.render("createSale", {
         title: "New Order",
     })
 })
-router.post("/new", async (req, res) => {
-//  console.log(req.body)
- const newSale = new saleModel(req.body)
- await newSale.save()
- res.redirect("/sale")
+router.post("/new-order", async (req, res) => {
+    try{
+        const newSale = new saleModel(req.body)
+        await newSale.save()
+        res.redirect("/sale/new-order")
+        console.log(req.body)
+}
+catch(err){
+    res.status(400).render("createSale")
+}
 })
 
 module.exports = router 
