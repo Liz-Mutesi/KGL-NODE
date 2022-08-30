@@ -1,9 +1,8 @@
 const express = require("express")
 const workerModel = require("../models/workerModel")
 
-
-
 const router = express.Router()
+
 
 router.get("/", async (req, res) => {
     const workers = await workerModel.find({})
@@ -37,7 +36,7 @@ router.post("/newWorker", async (req, res)=> {
 router.get("/worker-list", async (req, res)=> {
     try{
         let items = await workerModel.find()
-        res.render("workersList", {workers : items})
+        res.render("workerList", {workers : items})
 
     }
     catch(err){
@@ -57,7 +56,26 @@ router.post("/worker-list", async (req, res)=>{
         res.status(400).send("Unable to delete item from the database")
     }
 })
+//edit route
+router.get("/editWorker/:id", async (req, res)=>{
+    try {
+        const currentWorker = await workerModel.findById({_id:req.params.id})
+        res.render("editWorker", {worker:currentWorker})
+    }
+    catch {error}{
+        
+    }
+})
 
+router.post("/editWorker", async (req, res)=>{
+    try {
+        await workerModel.findByIdAndUpdate({_id:req.query.id}, req.body)
+       res.redirect("/workers/worker-list")
+    }
+    catch {error} {
+       
+    }
+})
 
 
 

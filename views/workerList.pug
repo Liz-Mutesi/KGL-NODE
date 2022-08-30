@@ -30,7 +30,9 @@ body
                     td
                         form(method="POST", action="/workers/worker-list")
                             input(type="hidden", name="_id", value=worker._id)
-                            button(type="submit") DELETE
+                            button(type="submit") Delete
+                    td
+                        a(href="/workers/editWorker" + worker._id) Edit
     else
         p There are no registered workers
 
