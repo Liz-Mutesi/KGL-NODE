@@ -1,0 +1,66 @@
+.regForm {
+    margin-left: 70px;
+    font-weight: bold;
+    text-align: left;
+    font-family: sans-serif, bold, Arial, Helvetica;
+    font-size: 14px;
+    padding-bottom: 1rem;
+    color: rgb(29, 23, 88);
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: rgb(29, 23, 88);
+  }
+  div input {
+    margin-right: 10px;
+  }
+  form {
+    margin: 0 auto;
+    width: 600px;
+  }
+  form input {
+    padding: 5px;
+    
+  }
+  form select {
+    background-color: #ffffff;
+    padding: 5px;
+  }
+  form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  input[type=submit]:hover {
+    background-color: rgb(29, 23, 88);
+    color: #ffffff;
+    border: none;
+    border-radius: 10%;
+    font-size: 18px;
+    font-weight: 500;
+}
+  input[type=text] {
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 5px;
+    border-style: none;
+}
+.bg-main {
+    background-color: rgb(231, 229, 236);
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    /* background-image: url(/img/corn-dusan.png); */
+    }
+.required-field::after {
+  content: "*";
+  color: red;
+  font-size: small;
+}
+h2 {
+  color: rgb(29, 23, 88);
+}
+.signUp-box {
+border-radius: 15px;
+}

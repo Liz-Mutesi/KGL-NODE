@@ -10,6 +10,7 @@ const saleRoutes = require("./routes/saleRoutes")
 const homeRoutes = require("./routes/homeRoutes")
 const signUpRoutes = require("./routes/signUpRoutes")
 const loginRoutes = require("./routes/loginRoutes")
+const randomRoutes = require("./routes/randomRoutes")
 
 
 
@@ -51,9 +52,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //-----------------------------------
-passport.use(Signup.createStrategy());
-passport.serializeUser(Signup.serializeUser());
-passport.deserializeUser(Signup.deserializeUser());
+passport.use(SignupModel.createStrategy());
+passport.serializeUser(SignupModel.serializeUser());
+passport.deserializeUser(SignupModel.deserializeUser());
 
 
 
@@ -63,6 +64,8 @@ app.use("/product", productRoutes)
 app.use("/sale", saleRoutes)
 app.use("/", signUpRoutes)
 app.use("/", loginRoutes)
+app.use("/", randomRoutes)
+
 
 //http://localhost:3000
 //http://localhost:3000/

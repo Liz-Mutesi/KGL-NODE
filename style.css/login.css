@@ -1,0 +1,65 @@
+.w3docs {
+    margin-left: 40px;
+    font-weight: bold;
+    text-align: left;
+    font-family: sans-serif, bold, Arial, Helvetica;
+    font-size: 14px;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .row {
+    padding-top: 60px;
+  }
+  .col {
+    border-radius: 20%;
+  }
+  div input {
+    margin-right: 10px;
+  }
+  form {
+    margin: 0 auto;
+    width: 600px;
+  }
+  form input {
+    padding: 10px;
+  }
+  form select {
+    background-color: #ffffff;
+    padding: 5px;
+  }
+  form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    color: rgb(29, 23, 88);
+  }
+  input[type=submit]:hover {
+    background-color: rgb(29, 23, 88);
+    color: #ffffff;
+    border: none;
+    border-radius: 10%;
+    font-size: 18px;
+    font-weight: 500;
+} 
+h3 {
+  color: rgb(29, 23, 88);
+}
+h6 {
+  color:rgb(59, 59, 231);
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input[type=submit] {
+  color: rgb(29, 23, 88);
+}
+.login-box {
+  border-radius: 15px;
+  margin-bottom: 20rem;
+}
+.bg-main {
+  background-color: rgb(231, 229, 236);
+  /* background: url("/img/corn-dusan.png"); */
+}
