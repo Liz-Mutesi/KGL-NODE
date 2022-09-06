@@ -8,7 +8,7 @@ head
   link(rel='stylesheet' href='')
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
 body
-    form(name='registration' method='POST' action='/product-list')
+    form(name='registration' method='POST' action='/product/product-list')
         h1 Add New Product
         br
         .mb-3
@@ -16,16 +16,19 @@ body
             input#name.form-control(type='text' name='name')
         .mb-3
             label.form-label(for='type') Type
-            input#age.form-control(type='text' name='type')
+            input#type.form-control(type='text' name='type')
+        .mb-3
+            label.form-label(for='source') Source
+            input#source.form-control(type='text' name='source')
         .mb-3
             label.form-label(for='quantity') Quantity
-            input#field.form-control(type='number' name='quantity')
+            input#quantity.form-control(type='number' name='quantity')
         .mb-3
             label.form-label(for='price') Price
-            input#salary.form-control(type='number' name='price')
+            input#price.form-control(type='number' name='price')
         .mb-3
             label.form-label(for='amount') Amount
-            input#salary.form-control(type='number' name='amount')
+            input#amount.form-control(type='number' name='amount')
         button.btn.btn-primary(type='submit') Submit
         br
         a(href="/product/product-list") Go Back to List

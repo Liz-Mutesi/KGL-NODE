@@ -8,7 +8,7 @@ head
 body
     .container
     h3 Product List
-    if items.length
+    if product.length
         table.table
             thead.thead-dark
                 tr
@@ -25,12 +25,13 @@ body
                     th(scope='row') #{procuct._id}
                     td #{procuct.name}
                     td #{procuct.type}
+                    td #{procuct.source}
                     td #{procuct.quantity}
                     td #{procuct.price}
                     td #{procuct.amount}
                     td
                         form(method="POST", action="/product/product-list")
-                            input(type="hidden", name="_id", value=worker._id)
+                            input(type="hidden", name="_id", value=product._id)
                             button(type="submit") DELETE
 
     else

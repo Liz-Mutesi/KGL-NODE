@@ -2,6 +2,7 @@ const express = require("express")
 const path = require("path")
 const mongoose = require("mongoose")
 const passport = require("passport")
+const moment = require("moment")
 
 
 const workerRoutes = require("./routes/workerRoutes")
@@ -28,6 +29,7 @@ const expressSession = require('express-session')({
     saveUninitialized: false,
 });
 
+app.locals.moment = require("moment")
 
 app.use(express.urlencoded({ extended: true }));
 

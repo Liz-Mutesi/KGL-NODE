@@ -15,6 +15,10 @@ body
     .mb-3
       label.form-label(for='type') Account Type
       input#age.form-control(type='text' name='type' value=order.type)
+        select#accountType(name='type')
+          option
+          option Cash Sale
+          option Credit Sale
     .mb-3
       label.form-label(for='item') Product
       input#field.form-control(type='text' name='item' value=order.item)
