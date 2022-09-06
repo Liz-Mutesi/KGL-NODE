@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form validation</title>
+    <link rel="stylesheet" href="credit.css">
+    
+  </head>
+  <body>
+    <h2 style="text-align: center"> Client Registration Form </h2>
+    <form name="RegForm" action="" method="post" class="regForm" onsubmit="return validationForm()">
+    <br>
+      <div>
+        <label for="Name"> Client Name *</label>
+        <input type="text" id="Name" size="60" name="Name">
+        <input  type="checkbox" id="checkbox" name="checkbox">
+        <!-- <small name="nameerror"></small> -->
+      </div>
+      <br>
+      <div>
+        <label for="E-mail">Client E-mail *</label>
+        <input type="text" id="E-mail" size="60" name="Email">
+        <input type="checkbox" id="checkbox" name="checkbox">
+      </div>
+      <br>
+      <div>
+        <label for="Location">Location *</label>
+        <input type="text" id="Location" size="60" name="location">
+        <input type="checkbox" id="checkbox" name="checkbox">
+      </div>
+      <br>
+      <div>
+        <label for="NIN">National Identification Number/BRN *</label>
+        <input type="text" id="NIN" size="60" name="nin">
+        <input type="checkbox" id="checkbox" name="checkbox">
+      </div>
+      <br>
+      <div>
+        <label for="Telephone">Telephone * </label>
+        <input type="text" id="Telephone" size="60" name="Telephone">
+        <input type="checkbox" id="checkbox" name="checkbox">
+      </div>
+      <br>
+      <div>
+        <label>Select Terms</label>
+        <select type="text" id="select" value="selected" name="Period">
+          <option></option>
+          <option>Cash Sale</option>
+          <option>Credit Sale</option>
+          <!-- <option></option> -->
+        </select>
+      </div> 
+      <br>
+      <div class="buttons">
+        <input type="submit" value="Submit" name="Submit">
+        <!-- <input type="reset" value="Reset" name="Reset"> -->
+      </div>
+    </form>
+    <script src="credit.js" >
+
+    </script>
+  </body>
+</html>

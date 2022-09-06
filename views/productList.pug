@@ -8,27 +8,28 @@ head
 body
     .container
     h3 Product List
-    if product.length
+    if products.length
         table.table
             thead.thead-dark
                 tr
-                    th(scope='col') #
+                    
                     th(scope='col') Name
                     th(scope='col') Type
+                    th(scope='col') Source
                     th(scope='col') Quantity
                     th(scope='col') Price
                     th(scope='col') Amount
                     
             tbody
-            each item in products
+            each product in products
                 tr
-                    th(scope='row') #{procuct._id}
-                    td #{procuct.name}
-                    td #{procuct.type}
-                    td #{procuct.source}
-                    td #{procuct.quantity}
-                    td #{procuct.price}
-                    td #{procuct.amount}
+                    
+                    td #{product.name}
+                    td #{product.type}
+                    td #{product.source}
+                    td #{product.quantity}
+                    td #{product.price}
+                    td #{product.amount}
                     td
                         form(method="POST", action="/product/product-list")
                             input(type="hidden", name="_id", value=product._id)

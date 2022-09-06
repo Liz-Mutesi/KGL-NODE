@@ -1,8 +1,8 @@
 function validationForm(){
-    let username = document.forms["RegForm"]["Name"];
+    // let username = document.forms["RegForm"]["Name"];
     let email = document.forms["RegForm"]["Email"];
     let password = document.forms["RegForm"]["Password"];
-    let phone = document.forms["RegForm"]["Telephone"];
+    // let phone = document.forms["RegForm"]["Telephone"];
     //let username = document.forms["RegForm"]["username"];
     
     nameRegex = /^[A-Za-z]+$/
@@ -16,8 +16,8 @@ function validationForm(){
     if(username.value == ""){
         //alert("Please enter your name");
         username.style.border = "2px solid red";
-        //username.innerHTML = "Please enter your name";
-        //username.focus();
+        username.innerHTML = "Please enter your name";
+        username.focus();
         return false;
     }
     else { username.style.border = "2px solid green";

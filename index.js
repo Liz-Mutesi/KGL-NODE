@@ -34,13 +34,14 @@ app.locals.moment = require("moment")
 app.use(express.urlencoded({ extended: true }));
 
 app.set("views", path.join(__dirname, "/views"))
+app.use(express.static(path.join(__dirname, '/public')));
 app.set("view engine", "pug")
 
 
 
 //db connect
 //mongodb://localhost:27017
-mongoose.connect("mongodb://localhost:27017/company", {
+mongoose.connect("mongodb://localhost:27017/KARIBU", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 },
@@ -83,5 +84,5 @@ app.use("/", randomRoutes)
 
 
 // always the last line in the information
-app.listen(process.env.port || 3000)
-console.log("server running on port" + (process.env.port || 3000))
+app.listen(process.env.port || 5000)
+console.log("server running on port" + (process.env.port || 5000))

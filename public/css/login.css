@@ -1,65 +1,74 @@
-/* .container {
-    margin-left: 40px;
-    font-weight: bold;
-    text-align: center;
-    font-family: sans-serif, bold, Arial, Helvetica;
-    font-size: 14px;
-  } */
-  .buttons {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .row {
-    padding-top: 60px;
-  }
-  .col {
-    border-radius: 20%;
-  }
-  div input {
-    margin-right: 10px;
-  }
-  form {
-    margin: 0 auto;
-    width: 600px;
-  }
-  form input {
-    padding: 10px;
-  }
-  form select {
-    background-color: #ffffff;
-    padding: 5px;
-  }
-  form label {
-    display: block;
-    width: 100%;
-    margin-bottom: 5px;
-    color: rgb(29, 23, 88);
-  }
-  input[type=submit]:hover {
-    background-color: rgb(29, 23, 88);
-    color: #ffffff;
-    border: none;
-    border-radius: 10%;
-    font-size: 18px;
-    font-weight: 500;
+.container {
+  background-image: url(/public/images/corn-dusan.png);
+  margin-left: 40px;
+  font-weight: bold;
+  text-align: left;
+  font-family: sans-serif, bold, Arial, Helvetica;
+  font-size: 14px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.row {
+  padding-top: 60px;
+}
+.col {
+  border-radius: 20%;
+}
+div input {
+  margin-right: 20px;
+  
+}
+form {
+  margin: 0 auto;
+  width: 300px;
+  height: 500px;
+  background-color:rgb(217, 233, 216);
+  margin-top: 30px;
+  border-radius: 20px;
+}
+form input {
+  padding: 30px;
+  width: 8cm;
+}
+form select {
+  background-color: #ffffff;
+  padding: 5px;
+}
+form label {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  color: rgba(0, 128, 0, 0.973);
+}
+input[type=submit]:hover {
+  background-color: rgba(0, 128, 0, 0.973);
+  color: #ffffff;
+  border: none;
+  border-radius: 10%;
+  font-size: 18px;
+  font-weight: 500;
 } 
-h3 {
-  color: rgb(29, 23, 88);
+p {
+color: rgba(0, 128, 0, 0.973);
+font-size: 30px;
+text-align: center;
+
 }
 h6 {
-  color:rgb(59, 59, 231);
-  font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+color:rgb(59, 59, 231);
+font-size: 14px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 input[type=submit] {
-  color: rgb(29, 23, 88);
+color: rgba(0, 128, 0, 0.973);
 }
 .login-box {
-  border-radius: 15px;
-  margin-bottom: 20rem;
+border-radius: 15px;
+margin-bottom: 20rem;
 }
-.bg-main {
-  background-color: rgb(231, 229, 236);
-  /* background: url("/img/corn-dusan.png"); */
-}
+/* .bg-main {
+background: url("/public/images/corn-dusan.png");
+} */

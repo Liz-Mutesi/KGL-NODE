@@ -14,9 +14,9 @@ router.get("/", async (req, res) => {
 router.get("/product-form", (req, res)=> {
     res.render("productForm")
 })
-router.get("/product-list", (req, res)=> {
-    res.render("productList")
-})
+// router.get("/product-list", (req, res)=> {
+//     res.render("productList")
+// })
 
 //error handling(try....catch)
 router.post("/newProduct", async (req, res)=> {
@@ -35,7 +35,7 @@ router.post("/newProduct", async (req, res)=> {
 router.get("/product-list", async (req, res)=> {
     try{
         let items = await productModel.find()
-        res.render("productList", {items : items})
+        res.render("productList", {products : items})
 
     }
     catch(err){
