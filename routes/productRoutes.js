@@ -35,7 +35,7 @@ router.post("/newProduct", async (req, res)=> {
 router.get("/product-list", async (req, res)=> {
     try{
         let items = await productModel.find()
-        res.render("productList", {products : items})
+        res.render("productList", {items : items})
 
     }
     catch(err){

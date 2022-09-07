@@ -6,8 +6,13 @@ const productSchema = mongoose.Schema({
     type: String,
     source: String,
     quantity: Number,
+    cost: Number,
+    date: Date,
+    time: String,
+    nameOfDealer: String,
+    branch: String,
+    contactNumber: Number,
     price: Number,
-    amount: Number,
 })
 
 module.exports = mongoose.model("Product", productSchema)

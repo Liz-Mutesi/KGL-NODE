@@ -37,7 +37,6 @@ async (req, res)=> {
     }
 })
 
-
 router.get("/worker-list", connectEnsureLogin.ensureLoggedIn(),
 async (req, res)=> {
     try{
