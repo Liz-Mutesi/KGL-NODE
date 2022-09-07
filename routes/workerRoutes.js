@@ -63,7 +63,7 @@ async (req, res)=>{
         res.status(400).send("Unable to delete item from the database")
     }
 })
-
+//edit route
 router.get("/editWorker/:id", connectEnsureLogin.ensureLoggedIn(),
 async (req, res)=>{
     try {

@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.get("/", async (req, res) => {
     const sale = await saleModel.find({})
-    res.render("salesList", {
-        title: "Orders", sale
+    res.render("sale", {
+        title: "Sales", sale
 
     })
 })
@@ -17,25 +17,19 @@ router.get("/new-order", async (req, res) => {
         title: "New Order",
     })
 })
-router.post("/new-order", async (req, res) => {
+router.post("/new-order", async (req, res)=> {
     try{
-        const newSale = new saleModel(req.body)
-         newSale.save((err)=>{
-            if(err){
-                console.log(err)
-            }
-            else{
-                res.redirect("/sale/new-order")
-            }
-        })
+        const newOrder = new saleModel(req.body)
+        await newOrder.save()
+        res.redirect("/sale/new-order")
+        console.log(req.body)
+    }
+    catch(err){
+        res.status(400).render("createSale")
         
-       }
-catch(err){
-    res.status(400).render("createSale")
-}
+    }
 })
-
-router.get("/sales-list", connectEnsureLogin.ensureLoggedIn(),
+router.get("/sales-list",
 async (req, res)=> {
     try{
         let items = await saleModel.find()
@@ -48,7 +42,7 @@ async (req, res)=> {
     }
 })
 //delete route
-router.post("/sales-list", connectEnsureLogin.ensureLoggedIn(),
+router.post("/sales-list",
 async (req, res)=>{
     try{
         await saleModel.deleteOne({
@@ -60,7 +54,7 @@ async (req, res)=>{
         res.status(400).send("Unable to delete item from the database")
     }
 })
-
+//edit route
 router.get("/editSales/:id", connectEnsureLogin.ensureLoggedIn(),
 async (req, res)=>{
     try {

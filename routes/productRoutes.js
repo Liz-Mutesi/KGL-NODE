@@ -14,16 +14,13 @@ router.get("/", async (req, res) => {
 router.get("/product-form", (req, res)=> {
     res.render("productForm")
 })
-// router.get("/product-list", (req, res)=> {
-//     res.render("productList")
-// })
 
 //error handling(try....catch)
 router.post("/newProduct", async (req, res)=> {
     try{
         const newProduct = new productModel(req.body)
         await newProduct.save()
-        res.redirect("/product-form")
+        res.redirect("/product/product-form")
         console.log(req.body)
     }
     catch(err){
@@ -34,8 +31,8 @@ router.post("/newProduct", async (req, res)=> {
 
 router.get("/product-list", async (req, res)=> {
     try{
-        let items = await productModel.find()
-        res.render("productList", {items : items})
+        let products = await productModel.find()
+        res.render("productList", {products : products})
 
     }
     catch(err){
@@ -55,7 +52,27 @@ router.post("/product-list", async (req, res)=>{
         res.status(400).send("Unable to delete item from the database")
     }
 })
-
+//edit route
+// router.get("/editProduct/:name", connectEnsureLogin.ensureLoggedIn(),
+// async (req, res)=>{
+//     try {
+//         const currentProduct = await productModel.findOneAndUpdate({_name:req.params.name})
+//         res.render("editProduct", {product:currentProduct})
+//     }
+//     catch {error}{
+        
+//     }
+// })
+// router.post("/editProduct", connectEnsureLogin.ensureLoggedIn(),
+// async (req, res)=>{
+//     try {
+//         await productModel.findOneAndUpdate({_name:req.query.name}, req.body)
+//        res.redirect("/product/product-list")
+//     }
+//     catch {err}{
+         
+//     }
+// })
 
 
 

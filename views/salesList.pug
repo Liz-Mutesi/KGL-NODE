@@ -5,41 +5,48 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
+  link(rel='stylesheet' href='/css/salesList.css')
 body
     .container
+        h3 KARIBU GROCERIES LTD
+        h3 Jinja Branch
         br
-        h3(style="color:blue") KARIBU GROCERIES LTD
-        h3(style="float:right") Jinja Branch
-        h5 Hello, #{username}
-        h3(style="align-text:center") Order List
+        h5 Hello, #{name}
+        h3(style="text-align:center") Order List
     if sale.length
         table.table
             thead.thead-dark
-                tr(style="background-color:grey")
-                    th(scope='col') Order No.
+                tr(style='background-color: rgb(204, 202, 202);')
+                    //th(scope='col') Order No.
                     th(scope='col') Customer
-                    th(scope='col') Account Type
                     th(scope='col') Product
                     th(scope='col') Quantity
-                    th(scope='col') Price
                     th(scope='col') Amount
-                    th(scope='col') Order Date
+                    th(scope='col') Sales Agent
+                    th(scope='col') Date
+                    th(scope='col') Time
                     
             tbody
             each order in sale
                 tr
-                    th(scope='row') #{order._id}
-                    td #{order.customer}
-                    td #{order.type}
-                    td #{order.item}
+                    //th(scope='row') #{order._id}
+                    td #{order.buyer}
+                    td #{order.itemName}
                     td #{order.quantity}
-                    td #{order.price}
                     td #{order.amount}
-                    td #{order.date}
+                    td #{order.agent}
+                    td #{moment(order.date).format("DD-MM-YYYY")}
+                    td #{order.time}
                     
+                    td
+                        form(method="POST", action="/sale/sales-list")
+                            input(type="hidden", name="_id", value=order._id)
+                            button(type="submit") DELETE
                     
                     td  
                         a(href="/sale/editSales/" + order._id) Edit
+                    br
+        a(href='/sale/new-order') Record Another Order
 
     else
         p There are no registered orders posted

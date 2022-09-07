@@ -8,11 +8,11 @@ html(lang="en")
         link(rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css" type='text/css')
     body
         .container
-            h3(style='text-align:center;') Record New Order
+            h3(style='text-align:center;') Record New Purchase
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-order')
+                    form(name='editProduct' method='POST' action='/product/newProduct?name=' +product._name) 
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
@@ -51,13 +51,9 @@ html(lang="en")
                                 input#staticEmail.form-control(type='time' name='time')
 
                         button.btn.btn-primary(type='submit') Submit
-                                br
-                    a(href='/sale') Purchases
-                    br
-                    a(href='/sale/sale-list') View Purchase List
+    
+                   
+                    a(href='/product/product-list') View Purchase List
                     
                    
 script(src='/js/bootstrap.min.js')
-
-  
-

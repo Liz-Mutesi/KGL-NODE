@@ -2,7 +2,6 @@ const express = require("express")
 const path = require("path")
 const mongoose = require("mongoose")
 const passport = require("passport")
-const moment = require("moment")
 
 
 const workerRoutes = require("./routes/workerRoutes")
@@ -22,6 +21,9 @@ const SignupModel = require("./models/signUp")
 
 
 const app = express()
+
+app.locals.moment = require('moment'); //Moment for date formating and global variable
+
 
 const expressSession = require('express-session')({
     secret: 'secret',
@@ -71,12 +73,6 @@ app.use("/sale", saleRoutes)
 app.use("/", signUpRoutes)
 app.use("/", loginRoutes)
 app.use("/", randomRoutes)
-
-
-//http://localhost:3000
-//http://localhost:3000/
-//http://localhost:3000/product/
-//http://localhost:3000/index/user
 
 
 

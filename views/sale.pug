@@ -7,14 +7,9 @@ html(lang="en")
         title= title
     body
         div 
-            each order in sale
-                p= order.customer
-                p= order.type
-                p= order.item
-                p= order.quantity
-                p= order.price
-                p= order.amount
-
+           p SALES DASHBOARD
+          
+            br
             a(href="/sale/new-order") Add Another Order
             br
             a(href="/") Home

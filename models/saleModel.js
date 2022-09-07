@@ -1,13 +1,13 @@
 const mongoose = require("mongoose")
 
 const saleSchema = mongoose.Schema({
-    customer: String,
-    type: String,
-    item: String,
+    buyer: String,
+    itemName: String,
     quantity: Number,
-    price: Number,
+    agent: String,
     amount: Number,
-    date: Number,
+    date: Date,
+    time: String,
 })
 
 module.exports = mongoose.model("Sale", saleSchema)

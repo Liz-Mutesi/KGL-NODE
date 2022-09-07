@@ -2,38 +2,50 @@ doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title= title
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        link(rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css" type='text/css')
     body
-        div 
-            form(action="/sale/new-order" method="POST")
-                h1 Enter New Order 
-                div
-                    label Customer:
-                    input(type="text" name="customer")
-                br
-                div
-                    label Account Type:
-                    input(type="text" name="type")
-                br
-                div
-                    label Product:
-                    input(type="text" name="item")
-                br
-                div
-                    label Quantity:
-                    input(type="number" name="quantity")
-                br
-                div
-                    label Price:
-                    input(type="number" name="price")
-                br
-                div
-                    label Amount:
-                    input(type="number" name="amount")
-                br
+        .container
+            h3(style='text-align:center;') Record New Order
+            br
+            .row
+                .offset-md-3.col-md-6
+                    form(method='POST' action='/sale/new-order')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='buyer') Customer
+                                input#staticEmail.form-control(type='text' name='buyer')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='itemName') Item
+                                input#staticEmail.form-control(type='text' name='itemName')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='quantity') Quantity
+                                input#staticEmail.form-control(type='number' name='quantity')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='amount') Amount
+                                input#staticEmail.form-control(type='number' name='amount')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='agent') Sales Agent
+                                input#staticEmail.form-control(type='text' name='agent')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='date') Date
+                                input#staticEmail.form-control(type='date' name='date')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='time') Time
+                                input#staticEmail.form-control(type='time' name='time')
 
-                button(type="submit" style="background-color: blue; border-radius: 5px;") Submit
-                br
-                a(href="/") Home
+                        button.btn.btn-primary(type='submit') Submit
+                                br
+                    a(href='/sale') Sales
+                    br
+                    a(href='/sale/sales-list') View Order List
+                    
+                   
+script(src='/js/bootstrap.min.js')
+
+  

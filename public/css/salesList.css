@@ -1,0 +1,24 @@
+
+table {
+    width: 100%;
+}
+th {
+    color: rgb(0, 128, 0, 0.973);
+}  
+th, td {
+    text-align: left;
+    padding: 8px;
+    
+}
+
+tr:nth-child(even) {
+    background-color: rgb(204, 202, 202);
+}
+
+h3 {
+    color: rgb(0, 128, 0, 0.973);
+}
+a {
+    color: rgb(0, 128, 0, 0.973);
+    font-weight: bold;
+}
