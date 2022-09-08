@@ -1,6 +1,7 @@
 const express = require("express")
 const connectEnsureLogin = require("connect-ensure-login");
 const saleModel = require("../models/saleModel")
+const creditSaleModel = require("../models/creditSaleModel")
 
 
 const router = express.Router()
@@ -12,6 +13,7 @@ router.get("/", async (req, res) => {
 
     })
 })
+//cash sale route
 router.get("/new-order", async (req, res) => {
     res.render("createSale", {
         title: "New Order",
@@ -39,6 +41,36 @@ async (req, res)=> {
     catch(err){
         console.log(err)
         res.send("Could not retrieve order list")
+    }
+})
+//credit sale route
+router.get("/new-credit", async (req, res) => {
+    res.render("creditSale", {
+        title: "New Credit Sale",
+    })
+})
+router.post("/new-credit", async (req, res)=> {
+    try{
+        const newCredit = new creditSaleModel(req.body)
+        await newCredit.save()
+        res.redirect("/sale/new-credit")
+        console.log(req.body)
+    }
+    catch(err){
+        res.status(400).render("creditSale")
+        
+    }
+})
+router.get("/credit-list",
+async (req, res)=> {
+    try{
+        let creditSale = await creditSaleModel.find()
+        res.render("creditList", {credit : creditSale})
+
+    }
+    catch(err){
+        console.log(err)
+        res.send("Could not retrieve credit list")
     }
 })
 //delete route

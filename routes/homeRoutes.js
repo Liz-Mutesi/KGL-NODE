@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get("/", async (req, res) => {
     res.render("index", {
-        title: "Produce Management",
+        title: "Karibu Groceries Ltd",
     })
 })
 
