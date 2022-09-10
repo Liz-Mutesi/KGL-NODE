@@ -8,10 +8,12 @@ html(lang="en")
     body
         div 
             each worker in workers
-                p= worker.name
+                p= worker.firstname
+                p= worker.surname
+                p= worker.email
+                p= worker.role
                 p= worker.branch
-                p= worker.position
-                p= worker.salary
+               
           
 
             a(href="/workers/worker-form") Manage Team

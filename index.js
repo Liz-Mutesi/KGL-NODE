@@ -11,6 +11,7 @@ const homeRoutes = require("./routes/homeRoutes")
 const signUpRoutes = require("./routes/signUpRoutes")
 const loginRoutes = require("./routes/loginRoutes")
 const randomRoutes = require("./routes/randomRoutes")
+const bossesRoutes = require("./routes/bossesRoutes")
 
 
 
@@ -21,9 +22,10 @@ const SignupModel = require("./models/signUp")
 
 
 const app = express()
-
+  
 app.locals.moment = require('moment'); //Moment for date formating and global variable
 
+app.use('/images', express.static('images'))
 
 const expressSession = require('express-session')({
     secret: 'secret',
@@ -73,6 +75,7 @@ app.use("/sale", saleRoutes)
 app.use("/", signUpRoutes)
 app.use("/", loginRoutes)
 app.use("/", randomRoutes)
+app.use("/", bossesRoutes)
 
 
 

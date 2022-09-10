@@ -1,10 +1,13 @@
 const express = require("express")
 const productModel = require("../models/productModel")
+const{isManager} = require('../authz/authorization')
+const connectEnsureLogin = require("connect-ensure-login");
 
 
 const router = express.Router()
 
-router.get("/", async (req, res) => {
+router.get("/", connectEnsureLogin.ensureLoggedIn(), isManager,
+async (req, res) => {
     const product = await productModel.find({})
     res.render("product", {
         title: "Purchases", product

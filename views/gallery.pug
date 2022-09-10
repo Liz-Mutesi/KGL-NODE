@@ -1,0 +1,10 @@
+extends layout
+block content
+    each item in images
+        .card(style='width: 18rem;')
+            img.card-img-top(src=item.image alt='...')
+            .card-body
+                h5.card-title #{item.image}
+                p.card-text
+                | Some quick example text to build on the card title 
+                a.btn.btn-primary(href='#') Go somewhere

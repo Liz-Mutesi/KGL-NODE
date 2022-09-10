@@ -1,5 +1,5 @@
 const express = require("express")
-const workerModel = require("../models/workerModel")
+const workerModel = require("../models/signUp")
 const connectEnsureLogin = require("connect-ensure-login");
 
 const router = express.Router()
@@ -28,11 +28,11 @@ async (req, res)=> {
     try{
         const newWorker = new workerModel(req.body)
         await newWorker.save()
-        res.redirect("/workers/worker-form")
+        res.redirect("/workers/sign-up")
         console.log(req.body)
     }
     catch(err){
-        res.status(400).render("workerForm")
+        res.status(400).render("workerList")
         
     }
 })
@@ -42,7 +42,7 @@ async (req, res)=> {
     try{
         console.log(req.user.firstname)
         let items = await workerModel.find()
-        res.render("workersList", {workers : items, username: req.user.firstname})
+        res.render("workerList", {workers : items, username: req.user.firstname})
 
     }
     catch(err){

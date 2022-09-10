@@ -87,24 +87,25 @@ async (req, res)=>{
     }
 })
 //edit route
-router.get("/editSales/:id", connectEnsureLogin.ensureLoggedIn(),
+router.get("/editSales/:id",
 async (req, res)=>{
     try {
         const currentOrder = await saleModel.findById({_id:req.params.id})
         res.render("editSales", {order:currentOrder})
     }
-    catch {error}{
+    catch (error){
         
     }
 })
 router.post("/editSales", connectEnsureLogin.ensureLoggedIn(),
 async (req, res)=>{
     try {
-        await workerModel.findByIdAndUpdate({_id:req.query.id}, req.body)
+        console.log(req.query)
+        await saleModel.findByIdAndUpdate({_id:req.query.id}, req.body)
        res.redirect("/sale/sales-list")
     }
-    catch {err}{
-         
+    catch (err){
+        console.log(err)
     }
 })
 

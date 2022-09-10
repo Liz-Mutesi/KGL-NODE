@@ -7,10 +7,12 @@ const signupSchema = new mongoose.Schema({
     firstname: {
     type: String,
     trim:true,
+    required: 'first name can not be empty',
   },
   surname: {
     type:String,
     trim:true,
+    required: true,
   },
   email:{
     type:String,
@@ -26,11 +28,23 @@ const signupSchema = new mongoose.Schema({
   // },
   role:{
     type:String,
+    required: true,
+    enum: ['director', 'manager', 'sales_agent'],
+    trim: true,
   
   },
+  branch:{
+    type:String,
+    required: true,
+    trim: true,
+    enum: ['jinja', 'mubende']
   
+  }
 
 });
+
+
+
 signupSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
 module.exports = mongoose.model("Signup", signupSchema);

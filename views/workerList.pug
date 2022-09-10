@@ -5,6 +5,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
+  link(rel="stylesheet", href="/css/salesList.css")
 body
     .container
     h5 Hello, #{username}
@@ -15,20 +16,22 @@ body
             thead.thead-dark
                 tr
                     th(scope='col') #
-                    th(scope='col') Name
+                    th(scope='col') First Name
+                    th(scope='col') Last Name
+                    th(scope='col') Email
                     th(scope='col') Branch
-                    th(scope='col') Position
-                    th(scope='col') Department
+                    th(scope='col') Role
                     th(scope='col') Action
                     
             tbody
             each worker in workers
                 tr
                     th(scope='row') #{worker._id}
-                    td #{worker.name}
+                    td #{worker.firstname}
+                    td #{worker.surname}
+                    td #{worker.email}
                     td #{worker.branch}
-                    td #{worker.position}
-                    td #{worker.department}
+                    td #{worker.role}
                     td
                         form(method="POST", action="/workers/worker-list")
                             input(type="hidden", name="_id", value=worker._id)

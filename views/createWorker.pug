@@ -10,16 +10,24 @@ html(lang="en")
             form(action="/workers/worker-form" method="POST")
                 h1 Create New Profile
                 div
-                    label Name:
-                    input(type="text" name="name")
+                    label First Name:
+                    input(type="text" name="firstname")
                 br
                 div
-                    label Position:
-                    input(type="text" name="designation")
+                    label SurName:
+                    input(type="text" name="surname")
+                br
+                div
+                    label Email:
+                    input(type="text" name="email")
                 br
                 div
                     label Branch:
                     input(type="text" name="branch")
+                br
+                div
+                    label Role:
+                    input(type="text" name="role")
 
                 br
                 button(type="submit" style="background-color: blue; border-radius: 5px;") Submit

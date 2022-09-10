@@ -6,9 +6,10 @@ html(lang="en")
         title= title
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         link(rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css" type='text/css')
+        link(rel="stylesheet" href="/css/createSale.css")
     body
         .container
-            h3(style='text-align:center;') Record New Credit
+            h3(style='text-align:center; color:') Record New Credit
             br
             .row
                 .offset-md-3.col-md-6
@@ -16,38 +17,38 @@ html(lang="en")
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='buyer') Customer
-                                input#staticEmail.form-control(type='text' name='buyer')
+                                input#buyer.form-control(type='text' name='buyer')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='nin') NIN
-                                input#staticEmail.form-control(type='number' name='id')
+                                input#nin.form-control(type='number' name='nin')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='location') Location
-                                input#staticEmail.form-control(type='text' name='location')
+                                input#location.form-control(type='text' name='location')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='contact') Contact
-                                input#staticEmail.form-control(type='number' name='contact')
+                                input#contact.form-control(type='number' name='contact')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='itemName') Item
-                                input#staticEmail.form-control(type='text' name='itemName')
+                                input#itemName.form-control(type='text' name='itemName')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
-                                input#staticEmail.form-control(type='number' name='quantity')
+                                input#quantity.form-control(type='number' name='quantity')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='amount') Amount Due
-                                input#staticEmail.form-control(type='number' name='amount')
+                                input#amount.form-control(type='number' name='amount')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='date') Due Date
-                                input#staticEmail.form-control(type='date' name='date')
+                                input#date.form-control(type='date' name='date')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='agent') Sales Agent
-                                input#staticEmail.form-control(type='text' name='agent')
+                                input#agent.form-control(type='text' name='agent')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='date') Dispatch Date
-                                input#staticEmail.form-control(type='date' name='date')
+                                input#date.form-control(type='date' name='date')
                             
 
                         button.btn.btn-primary(type='submit') Submit
