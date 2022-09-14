@@ -1,5 +1,72 @@
-h5 For Manager Only.
-br
-a(href='/workers/worker-list') View Employee List
-br
-a.btn.btn-warning(href="/logout") Log out
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/nav.css')
+  link(rel='stylesheet' href='/css/manager.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp')
+  title Karibu Groceries Ltd
+body
+
+    nav.navbar
+        .container
+            p(style='color:rgb(0, 128, 0, 0.973); items-align:left') KARIBU GROCERIES LTD
+            a.btn.btn-warning(href="/logout" style='background-color:#f1da06') Log out 
+            br
+.wrapper
+.sidebar
+ul
+    li
+        span.material-symbols-sharp
+            |dashboard
+            a(href='#')
+        span.item Dashboard
+
+    li
+        a(href='#')
+        span.icon
+            span.material-symbols-sharp
+                |shopping_bag
+        span.item Purchases
+    li
+        a(href='#')
+        span.icon
+            span.material-symbols-sharp
+                | receipt_long
+        span.item Sales
+    li
+        a(href='#')
+        span.icon
+            span.material-symbols-sharp
+                | people
+        span.item Customers
+    li
+        a(href='#')
+        span.icon
+        span.material-symbols-sharp
+                | person
+        span.item Suppliers
+    li
+        a(href='#')
+        span.icon
+            span.material-symbols-sharp
+                | report
+        span.item Reports
+    li
+        a(href='#')
+        span.icon
+            span.material-symbols-sharp
+                | Logout
+        span.item Logout
+                
+
+                
+    script.
+
+    script(src='/js/bootstrap.min.js')
+
+
+
+

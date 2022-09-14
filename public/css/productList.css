@@ -1,13 +1,21 @@
-
+body {
+    background-color: white;
+}
 table {
     width: 100%;
+    border: 1px solid;
+   
 }
 th {
+    background-color:rgb(204, 202, 202) ;
     color: rgb(0, 128, 0, 0.973);
+    border-top: 1px solid;
+   
 }  
 th, td {
     text-align: left;
     padding: 8px;
+    border-bottom: 1px solid;
     
 }
 
@@ -21,4 +29,9 @@ h3 {
 a {
     color: rgb(0, 128, 0, 0.973);
     font-weight: bold;
+}
+p {
+    color: rgb(0, 128, 0, 0.973);
+    font-weight: bold; 
+    
 }

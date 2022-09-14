@@ -8,7 +8,7 @@ html(lang="en")
         link(rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css" type='text/css')
     body
         .container
-            h3(style='text-align:center;') Record New Purchase
+            h3(style='text-align:center;') Edit Purchase
             br
             .row
                 .offset-md-3.col-md-6
@@ -16,39 +16,39 @@ html(lang="en")
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
-                                input#branch.form-control(type='text' name='branch')
+                                input#branch.form-control(type='text' name='branch' value=product.branch)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='name') Produce Name
-                                input#staticEmail.form-control(type='text' name='name')
+                                input#name.form-control(type='text' name='name' value=product.name)
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='type') Produce Type
-                                input#staticEmail.form-control(type='text' name='type')
+                                input#type.form-control(type='text' name='type' value=product.type)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity in Kgs
-                                input#staticEmail.form-control(type='number' name='quantity')
+                                input#quantity.form-control(type='number' name='quantity' value=product.quantity)
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='cost') Cost Price
-                                input#staticEmail.form-control(type='number' name='cost')
+                                input#cost.form-control(type='number' name='cost' value=product.cost)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='nameOfDealer') Supplier
-                                input#staticEmail.form-control(type='text' name='nameOfDealer')
+                                input#nameOfDealer.form-control(type='text' name='nameOfDealer' value=product.nameOfDealer)
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='contactNumber') Contact
-                                input#contactNumber.form-control(type='number' name='contactNumber')
+                                input#contactNumber.form-control(type='number' name='contactNumber' value=product.contactNumber)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='price') Sell Price
-                                input#staticEmail.form-control(type='number' name='price')
+                                input#price.form-control(type='number' name='price' value=product.price)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='date') Date
-                                input#staticEmail.form-control(type='date' name='date')
+                                input#date.form-control(type='date' name='date' value=product.date)
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='time') Time
-                                input#staticEmail.form-control(type='time' name='time')
+                                input#time.form-control(type='time' name='time' value=product.time)
 
                         button.btn.btn-primary(type='submit') Submit
     

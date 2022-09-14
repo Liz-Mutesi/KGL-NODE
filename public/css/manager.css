@@ -1,4 +1,4 @@
-*{
+body {
     margin: 0;
     padding: 0;
     outline: 0;
@@ -6,18 +6,9 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+    background-color: rgba(211, 208, 208, 0.973);
 }
-html {
-    font-size: 16px;
-}
-/* body{
-    width: 100vw;
-    height: 100vh;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background: var(--color-background);
-    user-select: none;
-    overflow: hidden;
-} */
+
 .container{
     display: grid;
     width: 96%;
@@ -25,9 +16,14 @@ html {
     background: whitesmoke;
     gap: 1.5rem;
     grid-template-columns: 12rem auto 25rem;
+    
 }
 a {
     color: #363949;
+}
+a.btn.btn {
+    background-color: whitesmoke;
+    align-items: right;
 }
 h1 {
     font-weight: 800;
@@ -53,37 +49,18 @@ small{
     border-radius: 50%;
     overflow: hidden;
 }
-aside .top{
-    /* display: flex; */
-/* align-items:;
-justify-content:; */
-margin-top: 1rem;
-/* margin-left: 1rem; */
-background-color: rgb(224, 243, 241);
-/* width: 15%; */
-}
-/* aside .logo{
-display: flex;
-gap: 0.8rem;
-} */
-/* aside .logo.img{
-width: 1rem;
-height: 1rem;
-} */
-aside .close{
-display: none;
-}
+
 /*==================SIDE BAR============*/
 aside .sidebar {
     display: flex;
     flex-direction: column;
-    height: 10vh;
+    height: 30vh;
     position: relative;
     top: 1rem;
     background-color: rgb(224, 243, 241);
     
 }
-aside .sidebar a {
+.sidebar a {
     display: flex;
     color: var(--color-info-dark);
     margin-left: 2rem;
@@ -92,17 +69,17 @@ aside .sidebar a {
     position: relative;
     height: 3rem;
     transition: 300ms ease;
-    }
- .sidebar a span {
+}
+.sidebar a span {
     font-size: 1.6rem;
     transition: 300ms ease;
 } 
- .sidebar a:last-child {
+.sidebar a:last-child {
     position: absolute;
     bottom: 1rem;
     width: 100%;
 } 
-aside .sidebar a.active {
+.sidebar a.active {
     background: var(--color-light);
     color: var(--color-primary);
     margin-left: 0;
@@ -113,7 +90,7 @@ aside .sidebar a.active:before {
     height: 100%;
     background: var(--color-primary);
 }
-aside .sidebar a.active span{
+.sidebar a.active span{
     color: var(--color-primary);
     margin-left: calc(1rem - 3px);
 }
@@ -132,6 +109,7 @@ main .date.input{
 
 
 }
+
 /* main .insights {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 

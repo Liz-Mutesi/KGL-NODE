@@ -2,6 +2,7 @@ const express = require("express")
 const connectEnsureLogin = require("connect-ensure-login");
 const saleModel = require("../models/saleModel")
 const creditSaleModel = require("../models/creditSaleModel")
+const productModel = require("../models/productModel")
 
 
 const router = express.Router()
@@ -35,7 +36,29 @@ router.get("/sales-list",
 async (req, res)=> {
     try{
         let items = await saleModel.find()
-        res.render("salesList", {sale : items})
+        let totalSales = await saleModel.aggregate([
+            {
+                '$group':{
+                    _id:'$all',
+                    totalRevenue:{$sum:'$amount'},
+                    totalTonnage: {$sum:'$quantity'}
+                }
+            }
+        ])
+        let totalPurchases = await productModel.aggregate([
+            {
+                '$group':{
+                    _id:'$all',
+                    totalExpenses:{$sum:'$cost'},
+                    totalTonnage: {$sum:'$quantity'}
+                }
+            }
+        ])
+        res.render("salesList", {
+            sale : items,
+            totalSales: totalSales[0],
+            totalPurchases: totalPurchases[0],
+        })
 
     }
     catch(err){
@@ -43,6 +66,8 @@ async (req, res)=> {
         res.send("Could not retrieve order list")
     }
 })
+
+
 //credit sale route
 router.get("/new-credit", async (req, res) => {
     res.render("creditSale", {
@@ -111,4 +136,4 @@ async (req, res)=>{
 
 
 
-module.exports = router 
+module.exports = router

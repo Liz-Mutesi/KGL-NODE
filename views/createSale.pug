@@ -19,7 +19,13 @@ html(lang="en")
                                 input#staticEmail.form-control(type='text' name='buyer')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='itemName') Item
-                                input#staticEmail.form-control(type='text' name='itemName')
+                                select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
+                                    option(value="" selected disabled) Select Item
+                                    option(value="Beans") Beans
+                                    option(value="G_nuts") G.Nuts
+                                    option(value="Maize") Maize
+                                    option(value="Peas") Peas
+                                    option(value="Soyabean") Soyabean
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity

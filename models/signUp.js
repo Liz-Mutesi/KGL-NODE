@@ -37,7 +37,7 @@ const signupSchema = new mongoose.Schema({
     type:String,
     required: true,
     trim: true,
-    enum: ['jinja', 'mubende']
+    enum: ['jinja', 'mubende', 'head_office']
   
   }
 

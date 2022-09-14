@@ -13,6 +13,10 @@ body
         br
         h5 Hello, #{name}
         h3(style="text-align:center") Order List
+    p Total Sales: #{totalSales.totalRevenue}
+    p Total Sales in KGs: #{totalSales.totalTonnage}
+    p Total Purchases: #{totalPurchases.totalTonnage}
+    //- p Difference: #{totalPurchases.totalTonnage} - #{totalSales.totalTonnage}
     if sale.length
         table.table
             thead.thead-dark

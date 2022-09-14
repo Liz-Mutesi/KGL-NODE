@@ -6,7 +6,7 @@ const connectEnsureLogin = require("connect-ensure-login");
 
 const router = express.Router()
 
-router.get("/", connectEnsureLogin.ensureLoggedIn(), isManager,
+router.get("/", isManager,
 async (req, res) => {
     const product = await productModel.find({})
     res.render("product", {
@@ -35,7 +35,20 @@ router.post("/newProduct", async (req, res)=> {
 router.get("/product-list", async (req, res)=> {
     try{
         let products = await productModel.find()
-        res.render("productList", {products : products})
+        let totalPurchases = await productModel.aggregate([
+            {
+                '$group':{
+                    _id:'$all',
+                    totalExpenses:{$sum:'$amount'},
+                    totalTonnage: {$sum:'$quantity'}
+                }
+            }
+        ])
+        res.render("productList", {
+            products : products,
+            totalPurchases: totalPurchases[0]
+        })
+       
 
     }
     catch(err){
@@ -56,26 +69,26 @@ router.post("/product-list", async (req, res)=>{
     }
 })
 //edit route
-// router.get("/editProduct/:name", connectEnsureLogin.ensureLoggedIn(),
-// async (req, res)=>{
-//     try {
-//         const currentProduct = await productModel.findOneAndUpdate({_name:req.params.name})
-//         res.render("editProduct", {product:currentProduct})
-//     }
-//     catch {error}{
+ router.get("/editProduct/:id", 
+ async (req, res)=>{
+     try {
+         const currentProduct = await productModel.findOne({_id:req.params.id})
+         res.render("editProduct", {product:currentProduct})
+    }
+     catch {error}{
         
-//     }
-// })
-// router.post("/editProduct", connectEnsureLogin.ensureLoggedIn(),
-// async (req, res)=>{
-//     try {
-//         await productModel.findOneAndUpdate({_name:req.query.name}, req.body)
-//        res.redirect("/product/product-list")
-//     }
-//     catch {err}{
+     }
+ })
+ router.post("/editProduct",
+ async (req, res)=>{
+     try {
+         await productModel.findOneAndUpdate({_name:req.query.name}, req.body)
+       res.redirect("/product/product-list")
+     }
+    catch {err}{
          
-//     }
-// })
+     }
+ })
 
 
 

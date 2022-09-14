@@ -41,14 +41,14 @@ const upload = multer({
 
 
 
-router.get("/ceoDash", (req, res) => {
-    res.render("ceoDash")
+ router.get("/directorDash", (req, res) => {
+     res.render("directorDash")
 })
-router.get("/managerDash", (req, res) => {
-    res.render("managerDash")
+ router.get("/managerDash", (req, res) => {
+     res.render("managerDash")
 })
-router.get("/regularDash", (req, res) => {
-    res.render("regularDash")
+ router.get("/regularDash", (req, res) => {
+     res.render("regularDash")
 })
 
 //Images
