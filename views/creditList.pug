@@ -6,6 +6,7 @@ head
   title Document
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
   link(rel='stylesheet' href='/css/salesList.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp')
 body
     .container-fluid 
         h3 KARIBU GROCERIES LTD
@@ -13,7 +14,7 @@ body
         br
         h5 Hello, #{name}
         h3(style="text-align:center") Credit List
-    if credit.length
+    if creditSale.length
         table.table
             thead.thead-dark
                 tr(style='background-color: rgb(204, 202, 202);')
@@ -29,6 +30,8 @@ body
                     th(scope='col') Due Date
                     th(scope='col') Sales Agent
                     th(scope='col') Dispatch Date
+                    th(scope='col') Delete
+                    th(scope='col') Edit
                     
             tbody
             each credit in creditSale
@@ -50,17 +53,21 @@ body
                     td
                         form(method="POST", action="/sale/credit-list")
                             input(type="hidden", name="_id", value=credit._id)
-                            button(type="submit") DELETE
+                            button(type="submit")
+                                span.material-symbols-sharp
+                                    | delete
                     
                     td  
-                        a(href="/sale/editCredit/" + credit._id) Edit
-                    br
-           
-
+                        a(href="/sale/editCredit/" + credit._id)
+                            span.material-symbols-sharp
+                                    | edit
+                        br
+        a(href='/sale/new-credit' style='items-align:center') Record Another Credit Sale               
     else
-        p There are no registered credit sales posted
-    
-        a.btn.btn-warning(href="/logout") Log out
-        br
-        a(href='/sale/new-credit' style='items-align:center') Record Another Credit Sale
+        p There are no registered credit sales posted              
+    br                   
+    a.btn.btn-warning(href="/logout") Log out
+      
+       
+
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')

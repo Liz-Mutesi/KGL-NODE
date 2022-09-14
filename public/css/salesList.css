@@ -1,13 +1,16 @@
 
 table {
     width: 100%;
+    border: 1px solid;
 }
 th {
     color: rgb(0, 128, 0, 0.973);
+    border-top: 1px solid;
 }  
 th, td {
     text-align: left;
     padding: 8px;
+    border-bottom: 1px solid;
     
 }
 

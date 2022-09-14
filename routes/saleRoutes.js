@@ -74,6 +74,20 @@ router.get("/new-credit", async (req, res) => {
         title: "New Credit Sale",
     })
 })
+
+router.get("/credit-list",
+async (req, res)=> {
+    try{
+        let creditSale = await creditSaleModel.find()
+        res.render("creditList", {creditSale : creditSale})
+
+    }
+    catch(err){
+        console.log(err)
+        res.send("Could not retrieve credit list")
+    }
+    
+})
 router.post("/new-credit", async (req, res)=> {
     try{
         const newCredit = new creditSaleModel(req.body)
@@ -84,18 +98,6 @@ router.post("/new-credit", async (req, res)=> {
     catch(err){
         res.status(400).render("creditSale")
         
-    }
-})
-router.get("/credit-list",
-async (req, res)=> {
-    try{
-        let creditSale = await creditSaleModel.find()
-        res.render("creditList", {credit : creditSale})
-
-    }
-    catch(err){
-        console.log(err)
-        res.send("Could not retrieve credit list")
     }
 })
 //delete route
@@ -128,6 +130,28 @@ async (req, res)=>{
         console.log(req.query)
         await saleModel.findByIdAndUpdate({_id:req.query.id}, req.body)
        res.redirect("/sale/sales-list")
+    }
+    catch (err){
+        console.log(err)
+    }
+})
+//Edit Credit Sales
+router.get("/editCredit/:id",
+async (req, res)=>{
+    try {
+        const currentCredit = await creditSaleModel.findById({_id:req.params.id})
+        res.render("editCredit", {creditSale : currentCredit})
+    }
+    catch (error){
+        
+    }
+})
+router.post("/editCredit",
+async (req, res)=>{
+    try {
+        console.log(req.query)
+        await creditSaleModel.findByIdAndUpdate({_id:req.query.id}, req.body)
+       res.redirect("/sale/credit-list")
     }
     catch (err){
         console.log(err)

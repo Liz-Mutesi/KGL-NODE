@@ -9,9 +9,9 @@ const creditSaleSchema = mongoose.Schema({
     type: String,
     quantity: Number,
     amount: Number,
-    date: Date,
+    dueDate: Date,
     agent: String,
-    date: Date,
+    dispatchDate: Date,
     
 })
 

@@ -1,0 +1,25 @@
+*{
+    background-color: rgba(211, 208, 208, 0.973);
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+form {
+    color: rgba(0, 128, 0, 0.973);
+}
+
+h3 {
+    color: rgba(0, 128, 0, 0.973);
+    font-weight: bold;
+}
+
+button.btn.btn {
+    background-color: rgba(0, 128, 0, 0.973);
+    border: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    align-items: center;
+}

@@ -80,7 +80,7 @@ margin-bottom: 20rem;
 /* background: url() no-repeat contain; */
 
   /* The background image */
-  background-image: url("/images/corn-dusan.png");
+  background-image: url("#");
 
   /* Set a specified height, or the minimum height for the background image */
   min-height: 100vh;

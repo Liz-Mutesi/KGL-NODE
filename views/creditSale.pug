@@ -6,7 +6,7 @@ html(lang="en")
         title= title
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         link(rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css" type='text/css')
-        link(rel="stylesheet" href="/css/createSale.css")
+        link(rel="stylesheet" href="/css/forms.css")
     body
         .container
             h3(style='text-align:center; color:') Record New Credit
@@ -32,6 +32,10 @@ html(lang="en")
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='itemName') Item
                                 input#itemName.form-control(type='text' name='itemName')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='type') Type
+                                input#type.form-control(type='text' name='type')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
                                 input#quantity.form-control(type='number' name='quantity')
@@ -40,15 +44,15 @@ html(lang="en")
                                 label.col-sm-2.col-form-label(for='amount') Amount Due
                                 input#amount.form-control(type='number' name='amount')
                             .col-md-6
-                                label.col-sm-2.col-form-label(for='date') Due Date
-                                input#date.form-control(type='date' name='date')
+                                label.col-sm-2.col-form-label(for='dispatchDate') Dispatch Date
+                                input#date.form-control(type='date' name='dueDate')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='agent') Sales Agent
                                 input#agent.form-control(type='text' name='agent')
                             .col-md-6
-                                label.col-sm-2.col-form-label(for='date') Dispatch Date
-                                input#date.form-control(type='date' name='date')
+                                label.col-sm-2.col-form-label(for='dueDate') Due Date
+                                input#date.form-control(type='date' name='dispatchDate')
                             
 
                         button.btn.btn-primary(type='submit') Submit
