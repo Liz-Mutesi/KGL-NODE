@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const workerSchema = mongoose.Schema({
     name: String,
     branch: String,
-    position: String,
+    role: String,
     department: String,
 })
 

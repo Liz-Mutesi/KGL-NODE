@@ -7,34 +7,8 @@ a.btn.btn {
     background-color: whitesmoke;
     align-items: right;
 }
-*{
-    list-style: none;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+.container-fluid {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
 }
 
-body{
-    background: whitesmoke;
-}
-
-.wrapper .sidebar{
-    
-    position: fixed;
-    top: 5rem;
-    left: 0;
-    width: 225px;
-    height: 90%;
-    padding: 20px 0;
-    transition: all 0.5s ease;
-}
-.span .item {
-    color: whitesmoke;
-}
-.wrapper .sidebar ul li a .icon{
-    color: #e7ecde;
-    width: 30px;
-    display: inline-block;
-}

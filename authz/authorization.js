@@ -10,7 +10,7 @@ module.exports.isManager = function (req, res, next) {
     if (req.user.role === 'manager') {
         return next();
     } else {
-        res.send('Only manager allowed to access this resource. <a href="http://localhost:5000/login">Go here to login again</a>');
+        res.send('Only manager allowed to access this resource. <a href="http://localhost:5000/login">Go here to login</a>');
     }
 }
 

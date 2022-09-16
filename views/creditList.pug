@@ -54,15 +54,17 @@ body
                         form(method="POST", action="/sale/credit-list")
                             input(type="hidden", name="_id", value=credit._id)
                             button(type="submit")
-                                span.material-symbols-sharp
+                                span.material-symbols-sharp(style='color:rgb(248, 244, 12)')
                                     | delete
                     
                     td  
                         a(href="/sale/editCredit/" + credit._id)
-                            span.material-symbols-sharp
+                            span.material-symbols-sharp(style='color:rgb(248, 244, 12)')
                                     | edit
                         br
-        a(href='/sale/new-credit' style='items-align:center') Record Another Credit Sale               
+        a(href='/sale/new-credit' style='items-align:center') Record Another Credit Sale 
+        br
+        a(href='/sale') Sales Dashboard
     else
         p There are no registered credit sales posted              
     br                   
