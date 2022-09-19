@@ -4,11 +4,12 @@ const passport = require("passport");
 
 const Signup = require("../models/signUp.js");
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login");
 
 
 
 //Sales
-router.get("/login", (req, res) => {
+router.get("/login",connectEnsureLogin.ensureLoggedOut(), (req, res) => {
   res.render("login");
 });
 
@@ -39,7 +40,7 @@ router.post('/login', (req, res, next) => {
 
 
 
-router.get("/workers/login", (req, res) => {
+router.get("/workers/login",connectEnsureLogin.ensureLoggedIn(), (req, res) => {
   res.render("login");
 });
 

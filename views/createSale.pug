@@ -16,8 +16,14 @@ html(lang="en")
                     form(method='POST' action='/sale/new-order')
                         .mb-3.row
                             .col-md-6
+                                label.col-sm-2.col-form-label(for='branch') Branch
+                                select.form-control#branch(name="branch", style='padding:10px' required)
+                                    option(value="" selected disabled) Select Branch
+                                    option(value="Jinja") Jinja
+                                    option(value="Mubende") Mubende
+                            .col-md-6
                                 label.col-sm-2.col-form-label(for='buyer') Customer
-                                input#staticEmail.form-control(type='text' name='buyer')
+                                input#buyer.form-control(type='text' name='buyer')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='itemName') Item
                                 select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
@@ -33,18 +39,18 @@ html(lang="en")
                                 input#staticEmail.form-control(type='number' name='quantity')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='amount') Amount
-                                input#staticEmail.form-control(type='number' name='amount')
+                                input#quantity.form-control(type='number' name='amount')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='agent') Sales Agent
-                                input#staticEmail.form-control(type='text' name='agent')
+                                input#agent.form-control(type='text' name='agent')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='date') Date
-                                input#staticEmail.form-control(type='date' name='date')
+                                input#date.form-control(type='date' name='date')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='time') Time
-                                input#staticEmail.form-control(type='time' name='time')
+                                input#time.form-control(type='time' name='time')
 
                         button.btn.btn-primary(type='submit') Submit
                                 br

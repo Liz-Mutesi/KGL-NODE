@@ -21,10 +21,10 @@ module.exports.isDirector = function (req, res, next) {
         res.send('Only director allowed to access this resource. <a href="http://localhost:5000/login">Go here to login again</a>');
     }
 }
-module.exports.isDirector = function (req, res, next) {
-    if (req.user.role === 'manager'  || req.user.role === 'sale_agent') {
+module.exports.isManagerOrSalesAgent = function (req, res, next) {
+    if (req.user.role === 'manager'  || req.user.role === 'sales_agent') {
         return next();
     } else {
-        res.send('Only director allowed to access this resource. <a href="http://localhost:5000/login">Go here to login again</a>');
+        res.send('Only Managers and Sales agents allowed. <a href="http://localhost:5000/login">Go here to login again</a>');
     }
 }

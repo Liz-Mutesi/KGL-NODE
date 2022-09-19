@@ -1,23 +1,28 @@
 doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title= title
-    body
-        div 
-            a(href="/workers/login") Team
-            br
-            br
-            a(href="/product/product-list") Products
-            br
-            br
-            a(href="/sale") Sales
-            br
-            br
-            a(href="/login") Login
-            br
-            br
-            a(href='/workers/signUp') Sign Up Here
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/css/landing.css')
+  title Landing Page
+body
+header#landing
+  h1 Welcome to Karibu Groceries Ltd
+  p Your one-stop dry produce hub
+  br
+  a.button(href='/login') Login
+section#section-a
+  p
+    | Our Values: Safety | Quality | Intergrity | Efficiency  | Accountability | Customer Satisfaction | Innovation | Teamwork 
+section#section-b
+  .box1
+    | We take pride in maintaining the highest standards of handling and storage of produce. Here's our Food Safety Policy....
+    a(href='#') Read more
+  .box2
+    | At KGL, our team is our most important asset. We value fairness, wellness and growth in the work place. Take a moment to
+    a(href='#') ..read our HR policy
+section#section-c
+  p
+    | Developed by: Elizabeth Mutesi &copy; 2022
 
+        

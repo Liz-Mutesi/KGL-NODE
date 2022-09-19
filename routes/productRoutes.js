@@ -6,7 +6,7 @@ const connectEnsureLogin = require("connect-ensure-login");
 
 const router = express.Router()
 
-router.get("/", isManager,
+router.get("/", connectEnsureLogin.ensureLoggedIn(), isManager,
 async (req, res) => {
     const product = await productModel.find({})
     res.render("product", {
@@ -32,9 +32,11 @@ router.post("/newProduct", async (req, res)=> {
     }
 })
 
-router.get("/product-list", async (req, res)=> {
+router.get("/product-list", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
     try{
-        let products = await productModel.find()
+        let products = await productModel.find({
+            branch: req.user.branch
+        })
         let totalPurchases = await productModel.aggregate([
             {
                 '$group':{

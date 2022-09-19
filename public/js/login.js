@@ -1,7 +1,7 @@
 function validationForm(){
     
-    let email = document.forms["RegForm"]["Email"];
-    let password = document.forms["RegForm"]["Password"];
+    let email = document.forms["login"]["email"];
+    let password = document.forms["login"]["password"];
     
     emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()])[A-Za-z\d@#$!%*?&^()]{8,}$/

@@ -6,20 +6,66 @@ head
   link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
   link(rel='stylesheet' href='/css/nav.css')
   link(rel='stylesheet' href='/css/regular.css')
+  link(rel="stylesheet" href="/css/manager.css")
   link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp')
   title Karibu Groceries Ltd
 body
     .container-main
         .row
             .col-md-8-offset-md-2
-                nav.navbar
-                    .container-nav
-                        p(style='color:rgb(0, 128, 0, 0.973);') KARIBU GROCERIES LTD
-        
+                .sidebar
+                    .logo-details
+                        i.bx.bxl-c-plus-plus
+                        span.logo_name KARIBU GROCERIES LTD
+                    .nav-links
+                        li
+                        a(href='/managerDash')
+                            span.material-symbols-sharp
+                                | grid_view
+                            span.links_name Dashboard
+                        li
+                        a(href='/sale/new-order')
+                            span.material-symbols-sharp
+                                | payments
+                            span.links_name Record Cash Sale
+                        li
+                        a(href='/sale/new-credit')
+                            span.material-symbols-sharp
+                                | credit_card
+                            span.links_name Record Credit Sale
+                        li
+                        a(href='/sale/sales-list')
+                            span.material-symbols-sharp
+                                | edit_square
+                            span.links_name Manage Sales
+                        li
+                        a(href='#')
+                            span.material-symbols-sharp
+                                | people
+                            span.links_name Customers
+                        li
+                        a(href='#')
+                            span.material-symbols-sharp
+                                | receipt
+                            span.links_name Generate Receipt
+                        li
+                        a(href='#')
+                            span.material-symbols-sharp
+                                | description
+                            span.links_name Generate Invoice
+                        li
+                        .d-none.d-lg-block
+                            a.btn.my-2.my-sm-0.btn-access(href="/staff/logout" onclick="return confirm('Do you really want to log out?')" role="button")
+                                span.material-symbols-sharp
+                                    | logout
+                                span.links_name Logout
+                                
+                .nav
+                    .nav-links
+                        ul
                     
+                        
 
-
-    a.btn.btn-warning(href="/logout" style='background-color:#f1da06') Log out
     script(src='/js/bootstrap.min.js')
 
 

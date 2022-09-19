@@ -7,6 +7,13 @@ const saleSchema = mongoose.Schema({
     amount: Number,
     date: Date,
     time: String,
+    
+    branch: {
+        type: String,
+        required: true,
+        trim: true,
+        enum: ['Jinja', 'Mubende'],
+    },
 
     itemName: {
         type:String,

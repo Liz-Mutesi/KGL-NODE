@@ -65,7 +65,12 @@ app.use(passport.session());
 passport.use(SignupModel.createStrategy());
 passport.serializeUser(SignupModel.serializeUser());
 passport.deserializeUser(SignupModel.deserializeUser());
-
+//Global variable for loggedin users
+app.get('*', (req, res, next)=>{
+    res.locals.user = req.user || null;
+    next();
+  })
+  
 
 
 app.use("/", homeRoutes)

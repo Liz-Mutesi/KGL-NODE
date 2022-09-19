@@ -1,72 +1,115 @@
 function validationForm(){
-    let name = document.forms["RegForm"]["Name"];
-    let location = document.forms["RegForm"]["Location"];
-    let email = document.forms["RegForm"]["Email"];
-    let nin = document.forms["RegForm"]["NIN"];
-    let phone = document.forms["RegForm"]["Telephone"];
-    let select = document.forms["RegForm"]["Period"];
-    //let username = document.forms["RegForm"]["username"];
+    let buyer = document.forms["RegForm"]["buyer"];
+    let location = document.forms["RegForm"]["location"];
+    let itemName = document.forms["RegForm"]["itemName"];
+    let nin = document.forms["RegForm"]["nin"];
+    let contact = document.forms["RegForm"]["contact"];
+    let type = document.forms["RegForm"]["type"];
+    let quantity = document.forms["RegForm"]["quantity"];
+    let amount = document.forms["RegForm"]["amount"];
+    let agent = document.forms["RegForm"]["agent"];
+    let dueDate = document.forms["RegForm"]["dueDate"];
+    // let dispatchDate = document.forms["RegForm"]["dispatchDate"];
+
     
-    nameRegex = /^[A-Za-z]+ [A-Za-z]+$/
+    
+    buyerRegex = /^[A-Za-z]{2,}+ [A-Za-z]+$/
     locationRegex = /^[A-Za-z0-9]+$/
-    emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    ninRegex = /^[A-Za-z0-9]{10}$/
-    //passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()])[A-Za-z\d@#$!%*?&^()]{8,}$/
-    numberRegex = /^[0-9]*$/
+    itemName =  /^[A-Za-z]+$/
+    ninRegex = /^[C-M]{2}[0-9]{1,9}[A-Z]*$/
+    contactRegex = /^[0-9]*$/
+    typeRegex = /^[A-Za-z0-9]+$/
+    quantityRegex = /^[0-9]{3,}*$/
+    amountRegex = /^[0-9]{5,}*$/
+    agentRegex = /^[A-Za-z]{2,}+ [A-Za-z]+$/
+    // dueDateRegex = [0-9]{2}[-|\/]{1}[0-9]{2}[-|\/]{1}[0-9]{4}
 
-    alphaNumeric = /^[A-Za-z0-9]+$/
+    // alphaNumeric = /^[A-Za-z0-9]+$/
 
     
-    if(name.value == ""|| !nameRegex.test(name.value)){
-        //alert("Please enter your name");
-        name.style.border = "2px solid red";
-        //name.innerHTML = "Please enter full name";
-        //username.focus();
+    if(buyer.value === ""|| !buyerRegex.test(buyer.value)){
+        //alert("Please enter customer name");
+        buyer.style.border = "2px solid red";
+        buyer.focus();
         return false;
     }
-    else {name.style.border = "2px solid green";
+    else {buyer.style.border = "2px solid green";
 
     }
-    if(email.value == ""|| !emailRegex.test(email.value) ){
-        //alert("Please enter your email");
-        email.style.border = "2px solid red";
-        //email.focus();
+    if(location.value === ""|| !locationRegex.test(location.value) ){
+        //alert("Please enter your location");
+        location.style.border = "2px solid red";
+        //location.focus();
         return false
-     } else{ email.style.border = "2px solid green";
+     } else{ location.style.border = "2px solid green";
         
     }
-    if(location.value == ""|| !locationRegex.test(location.value)){
-        //alert("Please enter location");
-        location.style.border = "2px solid red";
-        //location.innerHTML = "Please enter full name";
-        //location.focus();
+    if(itemName.value === ""|| !itemNameRegex.test(itemName.value)){
+        //alert("Please enter item name");
+        itemName.style.border = "2px solid red";
+        itemName.focus();
         return false;
     }
-    else {location.style.border = "2px solid green";
+    else {itemName.style.border = "2px solid green";
 
     }
-    if(nin.value == "" || !ninRegex.test(nin.value)){
-         //alert("Please enter valid NIN");
-        nin.style.border = "2px solid red";
-        //nin.focus();
+    if(nin.value === "" || !ninRegex.test(nin.value)){
+        alert("Please enter valid NIN");
+        //nin.style.border = "2px solid red";
+        nin.focus();
          return false;
     }
     else { nin.style.border = "2px solid green";
 
     }
-    if(phone.value == "" || phone.value.length != 10){
+    if(contact.value === "" || contact.value.length != 10){
         //alert("Please enter a valid phone number");
-        phone.style.border = "2px solid red";
+        contact.style.border = "2px solid red";
         //phone.focus();
         return false;
-    } else { phone.style.border = "2px solid green";
+    } else { contact.style.border = "2px solid green";
 
 }
-    if(select.value === ""){
-        period.style.border = "2px solid red";
-        // alert("Please select credit period")
-        period.focus()
-    } else{ phone.style.border = "2px solid green";
+if(type.value === ""|| !typeRegex.test(type.value)){    
+    type.style.border = "2px solid red";
+    type.focus();                                                           
+    return false;
+}
+else {type.style.border = "2px solid green";
+
+}
+if(quantity.value === ""|| !quantityRegex.test(quantity.value)){
+    alert("Please enter valid quantity");
+    quantity.style.border = "2px solid red";
+    quantity.focus();
+    return false;
+}
+else {quantity.style.border = "2px solid green";
+
+}
+if(amount.value === ""|| !amountRegex.test(amount.value)){
+    alert("Please enter valid amount");
+    //amount.style.border = "2px solid red";
+    amount.focus();
+    return false;
+}
+else {amount.style.border = "2px solid green";
+
+}
+if(agent.value === ""|| !agentRegex.test(agent.value)){
+    alert("This field can not be empty");
+    agent.style.border = "2px solid red";
+    agent.focus();
+    return false;
+}
+else {agent.style.border = "2px solid green";
+
+}
+    if(dueDate.value === ""){
+        dueDate.style.border = "2px solid red";
+        alert("Date can not be empty")
+        dueDate.focus()
+    } else{ dueDate.style.border = "2px solid green";
 
     }
 

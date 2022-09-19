@@ -2,7 +2,9 @@ const express = require("express")
 const workerModel = require("../models/workerModel")
 const connectEnsureLogin = require("connect-ensure-login");
 const multer = require('multer');
-const imageModel = require("../models/imageModel")
+const imageModel = require("../models/imageModel");
+const { isDirector, isManager, isSalesAgent, isManagerOrSalesAgent } = require("../authz/authorization");
+const productModel = require("../models/productModel");
 
 
 
@@ -41,13 +43,29 @@ const upload = multer({
 
 
 
- router.get("/directorDash", (req, res) => {
+ router.get("/directorDash",connectEnsureLogin.ensureLoggedIn(), isDirector, (req, res) => {
      res.render("directorDash")
 })
- router.get("/managerDash", (req, res) => {
-     res.render("managerDash")
+ router.get("/managerDash",connectEnsureLogin.ensureLoggedIn(), isManager, async(req, res) => {
+    try {
+        let productList = []
+        if (req.user.branch === "Jinja"){
+            productList = await productModel.find({
+                branch:"Jinja"
+            })
+        }else if (req.user.branch === "Mubende"){
+            productList = await productModel.find({
+                branch:"Mubende"
+            })
+        }
+     res.render("managerDash", {
+        product : productList
+     })
+    } catch (error) {
+        
+    }
 })
- router.get("/regularDash", (req, res) => {
+ router.get("/regularDash",connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, (req, res) => {
      res.render("regularDash")
 })
 

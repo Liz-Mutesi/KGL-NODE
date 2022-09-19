@@ -13,7 +13,14 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-credit')
+                    form(method='POST' action='/sale/new-credit' name='RegForm')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='branch') Branch
+                                select.form-control#branch(name="branch", style='padding:10px' required)
+                                    option(value="" selected disabled) Select Branch
+                                    option(value="Jinja") Jinja
+                                    option(value="Mubende") Mubende
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='buyer') Customer
@@ -60,8 +67,12 @@ html(lang="en")
                     a(href='/sale') Sales
                     br
                     a(href='/sale/credit-list') View Credit List
-                    
-                   
+
+
+
+
+
+script(src='/js/credit.js')                
 script(src='/js/bootstrap.min.js')
 
   
