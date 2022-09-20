@@ -13,7 +13,7 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-credit' name='RegForm')
+                    form(method='POST' action='/sale/new-credit' name='RegForm' onsubmit='return validationForm()')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch

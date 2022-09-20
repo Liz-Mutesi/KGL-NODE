@@ -6,7 +6,7 @@ body{
     margin: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-    color: rgba(0, 128, 0, 0.973);
+    color: #fff;
     line-height: 1.6;
 }
 #landing{
@@ -58,7 +58,7 @@ body{
 }
 #section-b{
     padding: 20px 0;
-    background-color: rgba(211, 208, 208, 0.973);
+    background-color: rgba(247, 244, 244, 0.973);
     text-align: center;
 }
 #section-b{
@@ -68,6 +68,6 @@ body{
     padding: 10px;
 }
 #section-b .box1, #section-b .box2{
-    background-color: rgba(211, 208, 208, 0.973);
+    background-color: rgba(247, 244, 244, 0.973);
     color: rgba(0, 128, 0, 0.973);
 }
