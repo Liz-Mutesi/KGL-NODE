@@ -19,10 +19,10 @@ router.post('/login', (req, res, next) => {
     if (err) {
       return next(err);
     }
-
     if (!user) {
-      return res.redirect('/login?info=' + info);
-    }
+      return res.render('login', {loginerror:"Email or Password is incorrect"});
+  }
+
 
     req.logIn(user, function(err) {
       if (err) {
@@ -59,19 +59,11 @@ router.post('/workers/login', (req, res, next) => {
         if (err) {
           return next(err);
         }
-        //   if (req.user.role === "manager"){
-        //   return res.redirect('/managerDash');
-        // }
-        //   if (req.user.role === "ceo"){
-        //   return res.redirect('/ceoDash');
-        // }
-        //   if (req.user.role === "dev"){
-        //   return res.redirect('/regularDash');
-        // }
+        
         if (req.user.role === "manager") {
           return res.redirect('/managerDash');
-        } else if (req.user.role === "ceo") {
-          return res.redirect('/ceoDash')
+        } else if (req.user.role === "director") {
+          return res.redirect('/directorDash')
         } else {
           return res.redirect('/regularDash')
         }

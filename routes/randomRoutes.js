@@ -65,6 +65,25 @@ const upload = multer({
         
     }
 })
+ router.get("/managerDash",connectEnsureLogin.ensureLoggedIn(), isManager, async(req, res) => {
+    try {
+        let salesList = []
+        if (req.user.branch === "Jinja"){
+            productList = await productModel.find({
+                branch:"Jinja"
+            })
+        }else if (req.user.branch === "Mubende"){
+            salesList = await productModel.find({
+                branch:"Mubende"
+            })
+        }
+     res.render("managerDash", {
+        sale : salesList
+     })
+    } catch (error) {
+        
+    }
+})
  router.get("/regularDash",connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, (req, res) => {
      res.render("regularDash")
 })

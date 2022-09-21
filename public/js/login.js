@@ -18,16 +18,15 @@ function validationForm(){
      } else{ email.style.border = "2px solid green";
         
     }
-    
-    if(password.value == "" || !passRegex.test(password.value)){
-        //alert("Please enter valid password");
-        password.style.border = "2px solid red";
-        password.focus();
-        return false;
-    }
-    else { password.style.border = "2px solid green";
+    // if(password.value == "" || !passRegex.test(password.value)){
+    //     alert("Please enter valid password");
+    //     password.style.border = "2px solid red";
+    //     password.focus();
+    //     return false;
+    // }
+    // else { password.style.border = "2px solid green";
 
-    }
+    // }
 
 
 }

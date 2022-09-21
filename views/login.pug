@@ -11,6 +11,7 @@ body
   .row
     h4(style='font-size:35px; padding-right:3rem') Login
     br
+    p #{loginerror}
     form.col-md-4.offset-md-4(method="POST" action="/workers/login" name="login" onsubmit='return validationForm()' style="align-items:center; background-color:rgb(231, 229, 236);height:75vh; color:rgb(29, 23, 88); padding:30px; font-size:18px; border-radius:15px;")
       .mb-3
         label.form-label(for='email') Email

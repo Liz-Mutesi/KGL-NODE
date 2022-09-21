@@ -13,7 +13,7 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-order')
+                    form(method='POST' action='/sale/new-order' name='salesForm')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
@@ -28,19 +28,19 @@ html(lang="en")
                                 label.col-sm-2.col-form-label(for='itemName') Item
                                 select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
                                     option(value="" selected disabled) Select Item
-                                    option(value="Beans") Beans
-                                    option(value="G_nuts") G.Nuts
-                                    option(value="Maize") Maize
-                                    option(value="Peas") Peas
-                                    option(value="Soyabean") Soyabean
+                                    each product in productList
+                                        option(value=product.itemName data-product=product) #{product.itemName}         
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
-                                input#staticEmail.form-control(type='number' name='quantity')
+                                input#quantity.form-control(type='number' name='quantity')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='price') Price
+                                input#price.form-control(type='number' name='price' readonly)
+                        .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='amount') Amount
-                                input#quantity.form-control(type='number' name='amount')
-                        .mb-3.row
+                                input#amount.form-control(type='number' name='amount')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='agent') Sales Agent
                                 input#agent.form-control(type='text' name='agent')
@@ -60,5 +60,5 @@ html(lang="en")
                     
                    
 script(src='/js/bootstrap.min.js')
-
+script(src='/js/createSale.js')
   

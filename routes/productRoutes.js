@@ -14,12 +14,18 @@ async (req, res) => {
 
     })
 })
-router.get("/product-form", (req, res)=> {
+router.get("/product-form", connectEnsureLogin.ensureLoggedIn(), isManager, 
+async (req, res)=> {
+try {
     res.render("productForm")
+} catch (error) {
+    
+}
+  
 })
 
 //error handling(try....catch)
-router.post("/newProduct", async (req, res)=> {
+router.post("/newProduct", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
     try{
         const newProduct = new productModel(req.body)
         await newProduct.save()
@@ -71,7 +77,7 @@ router.post("/product-list", async (req, res)=>{
     }
 })
 //edit route
- router.get("/editProduct/:id", 
+ router.get("/editProduct/:id", connectEnsureLogin.ensureLoggedIn(), isManager,
  async (req, res)=>{
      try {
          const currentProduct = await productModel.findOne({_id:req.params.id})

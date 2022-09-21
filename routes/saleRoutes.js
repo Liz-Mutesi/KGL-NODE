@@ -2,7 +2,8 @@ const express = require("express")
 const connectEnsureLogin = require("connect-ensure-login");
 const saleModel = require("../models/saleModel")
 const creditSaleModel = require("../models/creditSaleModel")
-const productModel = require("../models/productModel")
+const productModel = require("../models/productModel");
+const { isManager, isManagerOrSalesAgent } = require("../authz/authorization");
 
 
 const router = express.Router()
@@ -15,9 +16,12 @@ router.get("/", async (req, res) => {
     })
 })
 //cash sale route
-router.get("/new-order", async (req, res) => {
+router.get("/new-order",connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, 
+ async (req, res) => {
+    const productList = await productModel.find({branch:req.user.branch})
     res.render("createSale", {
         title: "New Order",
+        productList
     })
 })
 router.post("/new-order", async (req, res)=> {
@@ -32,10 +36,11 @@ router.post("/new-order", async (req, res)=> {
         
     }
 })
-router.get("/sales-list",
+router.get("/sales-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res)=> {
     try{
         let items = await saleModel.find()
+        let name = req.user.firstname
         let totalSales = await saleModel.aggregate([
             {
                 '$group':{
@@ -58,6 +63,7 @@ async (req, res)=> {
             sale : items,
             totalSales: totalSales[0],
             totalPurchases: totalPurchases[0],
+            name:name
         })
 
     }
@@ -69,13 +75,14 @@ async (req, res)=> {
 
 
 //credit sale route
-router.get("/new-credit", async (req, res) => {
+router.get("/new-credit", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, 
+async (req, res) => {
     res.render("creditSale", {
         title: "New Credit Sale",
     })
 })
 
-router.get("/credit-list",
+router.get("/credit-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res)=> {
     try{
         let creditSale = await creditSaleModel.find()
@@ -101,7 +108,7 @@ router.post("/new-credit", async (req, res)=> {
     }
 })
 //delete route
-router.post("/sales-list",
+router.post("/sales-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res)=>{
     try{
         await saleModel.deleteOne({
