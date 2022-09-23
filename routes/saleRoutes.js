@@ -41,6 +41,7 @@ async (req, res)=> {
     try{
         let items = await saleModel.find()
         let name = req.user.firstname
+        let branch = req.user.branch
         let totalSales = await saleModel.aggregate([
             {
                 '$group':{
@@ -63,7 +64,8 @@ async (req, res)=> {
             sale : items,
             totalSales: totalSales[0],
             totalPurchases: totalPurchases[0],
-            name:name
+            name:name,
+            branch
         })
 
     }
@@ -164,7 +166,19 @@ async (req, res)=>{
         console.log(err)
     }
 })
-
+//Delete route credit-list
+router.post("/credit-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
+async (req, res)=>{
+    try{
+        await saleModel.deleteOne({
+            _id: req.body._id 
+        })
+        res.redirect("/sale/credit-list")
+    }
+    catch(err){
+        res.status(400).send("Unable to delete item from the database")
+    }
+})
 
 
 module.exports = router

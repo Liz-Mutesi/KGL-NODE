@@ -16,28 +16,28 @@ body
       .mb-3.row
         .col-md-6
           label.col-sm-2.col-form-label(for='buyer') Customer
-          input#staticEmail.form-control(type='text' name='buyer')
+          input#staticEmail.form-control(type='text' name='buyer' value=order.buyer)
         .col-md-6
           label.col-sm-2.col-form-label(for='itemName') Item
-          input#staticEmail.form-control(type='text' name='itemName')
+          input#staticEmail.form-control(type='text' name='itemName' value=order.itemName)
       .mb-3.row
         .col-md-6
           label.col-sm-2.col-form-label(for='quantity') Quantity
-          input#staticEmail.form-control(type='number' name='quantity')
+          input#staticEmail.form-control(type='number' name='quantity' value=order.quantity)
         .col-md-6
           label.col-sm-2.col-form-label(for='amount') Amount
-          input#staticEmail.form-control(type='number' name='amount')
+          input#staticEmail.form-control(type='number' name='amount' value=order.amount)
       .mb-3.row
         .col-md-6
           label.col-sm-2.col-form-label(for='agent') Sales Agent
-          input#staticEmail.form-control(type='text' name='agent')
+          input#staticEmail.form-control(type='text' name='agent' value=order.agent)
       .mb-3.row
         .col-md-6
           label.col-sm-2.col-form-label(for='date') Date
-          input#staticEmail.form-control(type='date' name='date')
+          input#staticEmail.form-control(type='date' name='date' value=order.date)
         .col-md-6
           label.col-sm-2.col-form-label(for='time') Time
-          input#staticEmail.form-control(type='time' name='time')
+          input#staticEmail.form-control(type='time' name='time' value=order.time)
           br
           button.btn.btn-primary(type='submit' style='items-align:center') Submit
   script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')
