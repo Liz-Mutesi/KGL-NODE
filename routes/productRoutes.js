@@ -41,9 +41,10 @@ router.post("/newProduct", connectEnsureLogin.ensureLoggedIn(), isManager, async
 router.get("/product-list", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
     try{
         let products = await productModel.find({
-            branch: req.user.branch
+       
         })
         let name = req.user.firstname
+        let  branch = req.user.branch
         let totalPurchases = await productModel.aggregate([
             {
                 '$group':{
@@ -56,7 +57,8 @@ router.get("/product-list", connectEnsureLogin.ensureLoggedIn(), isManager, asyn
         res.render("productList", {
             products : products,
             totalPurchases: totalPurchases[0],
-            name:name
+            name:name,
+            branch
         })
        
 

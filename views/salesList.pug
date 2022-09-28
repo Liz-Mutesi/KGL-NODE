@@ -6,62 +6,98 @@ head
   title Document
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
   link(rel='stylesheet' href='/css/salesList.css')
+  link(rel='stylesheet' href='/css/managerDash.css')
   link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp')
 body
-    .container
-        h3 #{branch} Branch
-        h5 Hello, #{name}
-        h3(style="text-align:center") Cash Sales List
-    p Total Sales: #{totalSales.totalRevenue}
-    p Total Sales in KGs: #{totalSales.totalTonnage}
-    //- p Difference: #{totalPurchases.totalTonnage} - #{totalSales.totalTonnage}
-    if sale.length
-        table.table
-            thead.thead-dark
-                tr(style='background-color: rgb(204, 202, 202);')
-                    //th(scope='col') Order No.
-                    th(scope='col') Branch
-                    th(scope='col') Customer
-                    th(scope='col') Product
-                    th(scope='col') Quantity
-                    th(scope='col') Amount
-                    th(scope='col') Sales Agent
-                    th(scope='col') Date
-                    th(scope='col') Time
-                    th(scope='col') Delete
-                    th(scope='col') Edit
-                    
-            tbody
-            each order in sale
-                tr
-                    //th(scope='row') #{order._id}
-                    td #{order.branch}
-                    td #{order.buyer}
-                    td #{order.itemName}
-                    td #{order.quantity}
-                    td #{order.amount}
-                    td #{order.agent}
-                    td #{moment(order.date).format("DD-MM-YYYY")}
-                    td #{order.time}
-
-                    td
-                        .d-none.d-lg-block
-                            form(method="POST", action="/sale/sales-list")
-                                input(type="hidden", name="_id", value=order._id)
-                                button(type="submit" href="/delete" onclick="return confirm('Are you sure you want to delete this item?')" )
-                                    span.material-symbols-sharp(style='color:rgb(248, 244, 12)')
-                                        | delete             
-                    td 
-                        a(href="/sale/editSales/" + order._id)
-                            span.material-symbols-sharp(style='color:rgb(248, 244, 12)')
-                                    | edit
-                    br
-        a(href='/sale/new-order') Record Another Order
+    .sidebar
         br
-        a(href='/sale') Sales Dashboard
- 
-    else
-        p There are no registered orders posted
-    br
-    a.btn.btn-warning(href="/logout") Log out
+        .logo-details
+            //- img(src="/images/logo1.jpg" alt="logo" style="width:180px; height:100px")
+            h3 KARIBU GROCERIES
+        ul.nav-links
+            li
+            a(href='/product')
+                span.material-symbols-sharp
+                    | shopping_bag
+                span.links_name Purchases
+            li
+            a(href='/sale')
+                span.material-symbols-sharp
+                    | receipt_long
+                span.links_name Sales
+            li
+            a(href='#')
+                span.material-symbols-sharp
+                    | inventory
+                span.links_name Stock
+            li
+            a(href='#')
+                span.material-symbols-sharp
+                    | group
+                span.links_name Customers
+            li
+            a(href='/workers')
+                span.material-symbols-sharp
+                    | person_filled
+                span.links_name Suppliers
+            li
+            a(href="/logout")
+                span.material-symbols-sharp
+                    | logout
+                span.links_name Logout
+    .container
+        h3(style='color:rgb(0, 128, 0, 0.973)') #{branch} Branch
+        h5 Hello, #{name}
+        h3(style="color: rgb(0, 128, 0, 0.973); text-align:center") Cash Sales List
+        p Total Sales: #{totalSales.totalRevenue}
+        p Total Sales in KGs: #{totalSales.totalTonnage}
+        //- p Difference: #{totalPurchases.totalTonnage} - #{totalSales.totalTonnage}
+        if sale.length
+            table.table.table-striped
+                thead.thead-dark
+                    tr(style='background-color: rgb(204, 202, 202);')
+                        //th(scope='col') Order No.
+                        th(scope='col') Branch
+                        th(scope='col') Customer
+                        th(scope='col') Product
+                        th(scope='col') Quantity
+                        th(scope='col') Amount
+                        th(scope='col') Sales Agent
+                        th(scope='col') Date
+                        th(scope='col') Time
+                        th(scope='col') Delete
+                        th(scope='col') Edit
+                        
+                tbody
+                each order in sale
+                    tr
+                        //th(scope='row') #{order._id}
+                        td #{order.branch}
+                        td #{order.buyer}
+                        td #{order.itemName}
+                        td #{order.quantity}
+                        td #{order.amount}
+                        td #{order.agent}
+                        td #{moment(order.date).format("DD-MM-YYYY")}
+                        td #{order.time}
+
+                        td
+                            .d-none.d-lg-block
+                                form(method="POST", action="/sale/sales-list")
+                                    input(type="hidden", name="_id", value=order._id)
+                                    button(type="submit" href="/delete" onclick="return confirm('Are you sure you want to delete this item?')" )
+                                        span.material-symbols-sharp(style='color:rgb(248, 244, 12)')
+                                            | delete             
+                        td 
+                            a(href="/sale/editSales/" + order._id)
+                                span.material-symbols-sharp(style='color:rgb(248, 244, 12)')
+                                        | edit
+            .div
+                a.btn.btn-warning(href='/sale/new-order') Record Another Sale
+                a.btn.btn-warning(href='/sale') Sales Dashboard
+                a.btn.btn-warning(href="/logout") Log out
+        else
+            p There are no registered orders posted
+        
+        
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')

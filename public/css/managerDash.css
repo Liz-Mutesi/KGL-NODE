@@ -3,23 +3,26 @@ body{
 }
 *{
     margin-top: 0;
-    margin-left: 12px;
+    margin-left: 2px;
     padding: 0;
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif; 
   }
   .sidebar{
     position: fixed;
-    height: 95%;
+    height: 98%;
     width: 225px;
     background: rgba(0, 128, 0, 0.973);
     transition: all 0.5s ease;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    
   }
   .sidebar.active{
     width: 60px;
+    background-color: #fff;
+    color: rgba(0, 128, 0, 0.973);
   }
   .sidebar .logo-details{
     height: 60px;
@@ -97,4 +100,12 @@ body{
 h3 {
     color: #fff;
     font-size: 24px;
+}
+.img {
+  display: relative;
+  border-radius:50% ;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  align-content: flex-end;
 }

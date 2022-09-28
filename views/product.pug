@@ -11,14 +11,13 @@ html(lang="en")
         title Karibu Groceries
     body
         
-        nav.navbar.navbar-expand-lg(style='background-color:rgba(0, 128, 0, 0.973)')
-                a.Navbar.logo.navbar-brand(href='#')
-                    p KARIBU GROCERIES LTD     
+        //- nav.navbar.navbar-expand-lg(style='background-color:rgba(0, 128, 0, 0.973)')
+        //-         a.Navbar.logo.navbar-brand(href='#')
+        //-             p KARIBU GROCERIES LTD     
         .sidebar
             br
-            //- .logo-details
-            //-     i.bx.bxl-c-plus-plus
-            //-     span.logo_name KARIBU GROCERIES LTD
+            .logo-details
+                h3 KARIBU GROCERIES
             ul.nav-links
                 li
                 a(href='/managerDash')
@@ -29,7 +28,7 @@ html(lang="en")
                 a(href='/product/product-form')
                     span.material-symbols-sharp
                         | description
-                    span.links_name Record New Purchase
+                    span.links_name New Purchase
                 li
                 a(href='/product/product-list')
                     span.material-symbols-sharp
@@ -50,8 +49,6 @@ html(lang="en")
                     span.material-symbols-sharp
                         | logout
                     span.links_name Logout
-    .nav
-        .nav-links
-            ul
-
+        .container
+            
                 

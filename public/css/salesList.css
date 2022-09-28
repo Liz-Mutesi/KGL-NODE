@@ -1,16 +1,34 @@
-
-table {
+body {
+    height: 100%;
     width: 100%;
+    margin-top: 5px;
+}
+.container {
+    position: relative;
+    width: (100% - 220px);
+    margin-left: 227px;
+    /* padding-left: 10%; */
+    margin-top: 0px;
+    background-color: #f4f4f4;
+    
+}
+table {
+    width: (100%-220px);
+    margin-left: -3px;
     border: 1px solid;
+    margin-top: 0;
+    
 }
 th {
     color: rgb(0, 128, 0, 0.973);
     border-top: 1px solid;
+   
 }  
 th, td {
     text-align: left;
-    padding: 8px;
+    padding: 0;
     border-bottom: 1px solid;
+
     
 }
 
@@ -21,7 +39,17 @@ tr:nth-child(even) {
 h3 {
     color: rgb(0, 128, 0, 0.973);
 }
+p{
+    font-weight:900;
+}
 a {
     color: rgb(0, 128, 0, 0.973);
     font-weight: bold;
+}
+a.btn.btn {
+    display: inline-block;
+    
+}
+div a.btn.btn {
+    text-align: center;
 }

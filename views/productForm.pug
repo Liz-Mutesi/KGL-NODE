@@ -36,7 +36,7 @@ html(lang="en")
                                     option(value="Legumes") Legumes  
                         .mb-3.row
                             .col-md-6
-                                label.col-sm-2.col-form-label(for='quantity') Quantity in Kgs
+                                label.col-sm-2.col-form-label(for='quantity') Qty in Kgs
                                 input#staticEmail.form-control(type='number' name='quantity')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='cost') Cost Price
@@ -64,10 +64,10 @@ html(lang="en")
                                 input#staticEmail.form-control(type='time' name='time')
 
                         button.btn.btn-primary(type='submit') Submit
-                                br
-                    a(href='/product') Purchases
-                    br
-                    a(href='/product/product-list') View Purchase List
+                        br
+                        button.btn.btn-primary(href='/product') Go to Purchases
+                        br
+                        button.btn.btn-primary(href='/product/product-list') View Purchase List
                     
                    
 script(src='/js/bootstrap.min.js')

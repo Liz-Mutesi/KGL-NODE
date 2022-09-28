@@ -22,4 +22,5 @@ button.btn.btn {
     font-weight: bold;
     color: white;
     align-items: center;
+    display: flex;
 }
