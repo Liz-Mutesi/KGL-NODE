@@ -1,0 +1,89 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet')
+    link(rel='stylesheet' href='/css/directorDash.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+.sidebar
+  .logo-details
+    i.bx.bx
+    span.logo_name Karibu Groceries
+  ul.nav-links
+    li
+      a.active(href='#')
+        i.bx.bx-grid-alt
+        span.links Dashboard
+    li
+      a(href='/product/product-list')
+        i.bx.bx-box
+        span.links Purchases
+    li
+      a(href='/sale/sales-list')
+        i.bx.bx-money
+        span.links Sales
+    li
+      a(href='#')
+        i.bx.bx-bar-chart
+        span.links Analytics
+    li
+      a(href='#')
+        i.bx.bx-list-ul
+        span.links Stock
+    li
+      a(href='#')
+        i.bx.bx-cog
+        span.links Settings
+    li.log_out
+      a(href='#')
+        i.bx.bx-log-out
+        span.links Log out
+section.home-section
+    nav
+        .sidebar-button
+            i.bx.bx-menu.sidebarBtn
+            span.dashboard Dashboard
+        .search-box
+            input(type='text' placeholder='Search...')
+            i.bx.bx-search
+        .profile-details
+            // <img src="images/profile.jpg" alt="">
+            span.admin_name Andrew Orban
+    .home-content
+        .overview-boxes
+            .box
+                .right-side
+                .box-topic Total Purchases
+                .number 38,258,000
+            .box
+                .right-side
+                .box-topic Total Sales
+                .number 46,365 Kgs
+            .box
+                .right-side
+                .box-topic Credit Sales
+                .number 22,086,000
+            .box
+                .right-side
+                .box-topic Total Revenue
+                .number 80,092,000
+        .container
+          .progress-boxes
+            .box
+                .chart(data-percent='90') 90%
+                  h2 Monthly Sales
+            .box
+              .chart(data-percent='72') 72%
+                h2 Quaterly Sales
+            .box
+              .chart(data-percent='81') 81%
+                h2 Annual Target
+script.
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+  }else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
