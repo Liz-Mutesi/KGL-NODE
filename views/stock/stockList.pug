@@ -1,0 +1,75 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
+  link(rel="stylesheet", href="/css/productList.css")
+  link(rel="stylesheet", href="/css/managerDash.css")
+
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp')
+body
+    .container
+        h3(style='color:rgb(0, 128, 0, 0.973)') Karibu Groceries
+        h5 #{branch} Branch
+        h5 Hello, #{name}
+        h3(style='text-align:center; text-decoration:underline; color:rgb(0, 128, 0, 0.973') Inventory List
+        br
+        p Total Purchases in UGX: #{totalPurchases.totalExpenses}
+        p Total Purchases in KGs: #{totalPurchases.totalTonnage}
+        if stocks.length
+            table.table
+                thead(style='background-color:rgb(204, 202, 202)')
+                    tr
+
+                        th(scope='col') #
+                        th(scope='col') Branch Name
+                        th(scope='col') Produce Name
+                        th(scope='col') Produce Type
+                        th(scope='col') Quantity in Stock
+                        th(scope='col') Quantity Recorded
+                        th(scope='col') Amount
+                        th(scope='col') Available Stock
+                        th(scope='col') Selling Price
+                        th(scope='col') Date
+                        th(scope='col') Time
+                        th(scope='col') Delete
+                        th(scope='col') Edit
+                    
+                        
+                tbody
+                each stock in stocks
+                    tr
+                        td 
+                        td #{stock.branch}
+                        td #{stock.itemName}
+                        td #{stock.type}
+                        td #{stock.quantity}
+                        td #{stock.recorded}
+                        td #{stock.amount}
+                        td #{stock.available}
+                        td #{stock.price}
+                        td #{moment(stock.date).format("DD-MM-YYYY")}
+                        td #{stock.time}
+
+                        td
+                            form(method="POST", action="/product/stock/stock-list")
+                                input(type="hidden", name="_id", value=stock._id)
+                                button(type="submit" href="/delete" onclick="return confirm('Are you sure you want to delete this item?')")
+                                    span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
+                                        | delete
+                            td
+                                a(href="/stock/editProduct/"+stock._id)
+                                    span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
+                                            | edit
+            .div                       
+                a.btn.btn-warning(href='/stock/stock-form') Record Another Purchase
+                br
+                a.btn.btn-warning(href='/stock') Purchase Dashboard
+                br
+                a.btn.btn-warning(href="/logout") Log out
+        else
+            p No items listed
+        
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')

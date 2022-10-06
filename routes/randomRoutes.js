@@ -5,6 +5,7 @@ const multer = require('multer');
 const imageModel = require("../models/imageModel");
 const { isDirector, isManager, isSalesAgent, isManagerOrSalesAgent } = require("../authz/authorization");
 const productModel = require("../models/productModel");
+const saleModel = require("../models/saleModel");
 
 
 
@@ -69,11 +70,11 @@ const upload = multer({
     try {
         let salesList = []
         if (req.user.branch === "Jinja"){
-            productList = await productModel.find({
+            productList = await saleModel.find({
                 branch:"Jinja"
             })
         }else if (req.user.branch === "Mubende"){
-            salesList = await productModel.find({
+            salesList = await saleModel.find({
                 branch:"Mubende"
             })
         }
@@ -84,10 +85,25 @@ const upload = multer({
         
     }
 })
- router.get("/regularDash",connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, (req, res) => {
-     res.render("regularDash")
+ router.get("/regularDash",connectEnsureLogin.ensureLoggedIn(), isSalesAgent, async(req, res) => {
+    try {
+        let salesList = []
+        if (req.user.branch === "Jinja"){
+            salesList = await saleModel.find({
+                branch:"Jinja"
+            })
+        }else if (req.user.branch === "Mubende"){
+            salesList = await saleModel.find({
+                branch:"Mubende"
+            })
+        }
+     res.render("regularDash", {
+        sale : salesList
+     })
+    } catch (error) {
+        
+    }
 })
-
 //Images
 router.get("/uploads", (req, res) => {
     res.render("uploads")

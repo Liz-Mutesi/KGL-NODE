@@ -31,10 +31,19 @@ html(lang="en")
                         | credit_card
                     span.links_name Record Credit Sale
                 li
-                a(href='/sale/sales-list')
+                a(#)
                     span.material-symbols-sharp
                         | edit_square
-                    span.links_name Sales Lists
+                    select#sales-link
+                        option(value="" selected disabled) Manage Sales
+                        option(value="")
+                           
+                        option(value="Cash" data-link="/sale/sales-list") Cash Sales 
+                            
+                        option(value="Credits" data-link="/sale/credit-list") Credit Sales
+
+                    span.links_name 
+                        
                 li
                 a(href='#')
                     span.material-symbols-sharp
@@ -55,8 +64,7 @@ html(lang="en")
                     span.material-symbols-sharp
                         | logout
                     span.links_name Logout
-    .nav
-        .nav-links
-            ul
-
+   
                
+script(src="/js/sale.js")
+   

@@ -1,0 +1,79 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title= title
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        link(rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css" type='text/css')
+        link(rel="stylesheet" href="/css/forms.css" type='text/css')
+    body
+        .container
+            h3(style='text-align:center;') Record New Product
+            br
+            .row
+                .offset-md-3.col-md-6
+                    form(method='POST' action='/product/newProduct')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='branch') Branch
+                                input.form-control#branch(name="branch", style='padding:10px'  value=user.branch  readonly)
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='itemName') Produce Name
+                                select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
+                                        option(value="" selected disabled) Select Item
+                                        option(value="Beans") Beans
+                                        option(value="G_nuts") G.Nuts
+                                        option(value="Maize") Maize
+                                        option(value="Peas") Peas
+                                        option(value="Soyabean") Soyabean       
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='type') Produce Type
+                                select.form-control#type(name='type', type='text' required)
+                                    option(value="" selected disabled) Select Type
+                                    option(value="Cereals") Cereals
+                                    option(value="Legumes") Legumes  
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='quantity') Qty in Stock
+                                input#staticEmail.form-control(type='number' name='quantity')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='recored') Qty Recorded
+                                input#staticEmail.form-control(type='number' name='recorded')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='availabe') Available Stock 
+                                input#staticEmail.form-control(type='text' name='availabe')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='price') Sell Price
+                                input#price.form-control(type='number' name='price')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='amount') Amount
+                                input#amount.form-control(type='number' name='amount')
+                        .mb-3.row
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='date') Date
+                                input#staticEmail.form-control(type='date' name='date')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='time') Time
+                                input#staticEmail.form-control(type='time' name='time')
+
+                        button.btn.btn-primary(type='submit') Submit
+                        br
+                        button.btn.btn-primary(href='/product') Go to Purchases
+                        br
+                        button.btn.btn-primary(href='/product/product-list') View Purchase List
+                    
+                   
+script(src='/js/bootstrap.min.js')
+
+  
+
+
+
+    
+   
+   
+    

@@ -133,7 +133,7 @@ async (req, res)=>{
         
     }
 })
-router.post("/editSales", connectEnsureLogin.ensureLoggedIn(),
+router.post("/editSales",
 async (req, res)=>{
     try {
         console.log(req.query)

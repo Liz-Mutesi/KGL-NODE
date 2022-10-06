@@ -1,8 +1,24 @@
 body {
-    background-color: white;
+    /* background-color: white; */
+    height: 100%;
+    width: 100%;
+    margin-top: 5px;
+}
+.sidebar {
+    height: 100%;
+}
+.container {
+    position: relative;
+    width: (100% - 220px);
+    margin-left: 227px;
+    /* padding-left: 10%; */
+    margin-top: 0px;
+    background-color: #f4f4f4;
+    
 }
 table {
-    width: 100%;
+    width: (100%-220px);
+    margin-left: -3px;
     border: 1px solid;
    
 }
@@ -34,4 +50,14 @@ p {
     color: rgb(0, 128, 0, 0.973);
     font-weight: bold; 
     
+}
+a {
+    color: rgb(0, 128, 0, 0.973);
+}
+a.btn.btn {
+    display: inline-block;
+    
+}
+div a.btn.btn {
+    text-align: center;
 }

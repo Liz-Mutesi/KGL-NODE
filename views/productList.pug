@@ -6,70 +6,108 @@ head
   title Document
   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx' crossorigin='anonymous')
   link(rel="stylesheet", href="/css/productList.css")
+  link(rel="stylesheet", href="/css/managerDash.css")
+
   link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp')
 body
-    .container
-    h3 Karibu Groceries
-    h5 #{branch} Branch
-    h5 Hello, #{name}
-    h3(style='text-align:center; text-decoration:underline') Purchase List
-    br
-    p Total Purchases in UGX: #{totalPurchases.totalExpenses}
-    p Total Purchases in KGs: #{totalPurchases.totalTonnage}
-    if products.length
-        table.table
-            thead(style='background-color:rgb(204, 202, 202)')
-                tr
-
-                    th(scope='col') #
-                    th(scope='col') Branch Name
-                    th(scope='col') Produce Name
-                    th(scope='col') Produce Type
-                    th(scope='col') Quantity in Kgs
-                    th(scope='col') Cost Price
-                    th(scope='col') Amount
-                    th(scope='col') Sell Price
-                    th(scope='col') Supplier
-                    th(scope='col') Contact No.
-                    th(scope='col') Date
-                    th(scope='col') Time
-                    th(scope='col') Delete
-                    th(scope='col') Edit
-                   
-                    
-            tbody
-            each product in products
-                tr
-                    td 
-                    td #{product.branch}
-                    td #{product.itemName}
-                    td #{product.type}
-                    td #{product.quantity}
-                    td #{product.cost}
-                    td #{product.amount}
-                    td #{product.price}
-                    td #{product.nameOfDealer}
-                    td #{product.contactNumber}
-                    td #{moment(product.date).format("DD-MM-YYYY")}
-                    td #{product.time}
-
-                    td
-                        form(method="POST", action="/product/product-list")
-                            input(type="hidden", name="_id", value=product._id)
-                            button(type="submit" href="/delete" onclick="return confirm('Are you sure you want to delete this item?')")
-                                span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
-                                    | delete
-                        td
-                            a(href="/product/editProduct/"+product._id)
-                                span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
-                                        | edit
-                            
-        a(href='/product/product-form') Record Another Purchase
+    .sidebar
         br
-        a(href='/product') Purchase Dashboard
+        .logo-details
+            //- img(src="/images/logo1.jpg" alt="logo" style="width:180px; height:100px")
+            h3 KARIBU GROCERIES
+        ul.nav-links
+            li
+            a(href='/product')
+                span.material-symbols-sharp
+                    | shopping_bag
+                span.links_name Purchases
+            li
+            a(href='/sale')
+                span.material-symbols-sharp
+                    | receipt_long
+                span.links_name Sales
+            li
+            a(href='#')
+                span.material-symbols-sharp
+                    | inventory
+                span.links_name Stock
+            li
+            a(href='#')
+                span.material-symbols-sharp
+                    | group
+                span.links_name Customers
+            li
+            a(href='/workers')
+                span.material-symbols-sharp
+                    | person_filled
+                span.links_name Suppliers
+            li
+            a(href="/logout")
+                span.material-symbols-sharp
+                    | logout
+                span.links_name Logout
+    .container
+        h3(style='color:rgb(0, 128, 0, 0.973)') Karibu Groceries
+        h5 #{branch} Branch
+        h5 Hello, #{name}
+        h3(style='text-align:center; text-decoration:underline; color:rgb(0, 128, 0, 0.973') Purchase List
+        br
+        p Total Purchases in UGX: #{totalPurchases.totalExpenses}
+        p Total Purchases in KGs: #{totalPurchases.totalTonnage}
+        if products.length
+            table.table
+                thead(style='background-color:rgb(204, 202, 202)')
+                    tr
 
-    else
-        p No items listed
-    br
-    a.btn.btn-warning(href="/logout") Log out
-    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')
+                        th(scope='col') #
+                        th(scope='col') Branch Name
+                        th(scope='col') Produce Name
+                        th(scope='col') Produce Type
+                        th(scope='col') Quantity in Kgs
+                        th(scope='col') Cost Price
+                        th(scope='col') Amount
+                        th(scope='col') Sell Price
+                        th(scope='col') Supplier
+                        th(scope='col') Contact No.
+                        th(scope='col') Date
+                        th(scope='col') Time
+                        th(scope='col') Delete
+                        th(scope='col') Edit
+                    
+                        
+                tbody
+                each product in products
+                    tr
+                        td 
+                        td #{product.branch}
+                        td #{product.itemName}
+                        td #{product.type}
+                        td #{product.quantity}
+                        td #{product.cost}
+                        td #{product.amount}
+                        td #{product.price}
+                        td #{product.nameOfDealer}
+                        td #{product.contactNumber}
+                        td #{moment(product.date).format("DD-MM-YYYY")}
+                        td #{product.time}
+
+                        td
+                            form(method="POST", action="/product/product-list")
+                                input(type="hidden", name="_id", value=product._id)
+                                button(type="submit" href="/delete" onclick="return confirm('Are you sure you want to delete this item?')")
+                                    span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
+                                        | delete
+                            td
+                                a(href="/product/editProduct/"+product._id)
+                                    span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
+                                            | edit
+            .div                       
+                a.btn.btn-warning(href='/product/product-form') Record Another Purchase
+                br
+                a.btn.btn-warning(href='/product') Purchase Dashboard
+                br
+                a.btn.btn-warning(href="/logout") Log out
+        else
+            p No items listed
+        
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')

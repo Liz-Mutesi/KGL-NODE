@@ -41,7 +41,7 @@ router.post("/newProduct", connectEnsureLogin.ensureLoggedIn(), isManager, async
 router.get("/product-list", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
     try{
         let products = await productModel.find({
-       
+          branch: req.user.branch
         })
         let name = req.user.firstname
         let  branch = req.user.branch
@@ -94,7 +94,7 @@ router.post("/product-list", async (req, res)=>{
  router.post("/editProduct",
  async (req, res)=>{
      try {
-         await productModel.findOneAndUpdate({_name:req.query.name}, req.body)
+         await productModel.findOneAndUpdate({_id:req.query._id}, req.body)
        res.redirect("/product/product-list")
      }
     catch {err}{

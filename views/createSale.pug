@@ -29,7 +29,7 @@ html(lang="en")
                                 select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
                                     option(value="" selected disabled) Select Item
                                     each product in productList
-                                        option(value=product.itemName data-product=product) #{product.itemName}         
+                                        option(value=product.itemName data-price=product.price) #{product.itemName}         
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
@@ -61,4 +61,5 @@ html(lang="en")
                    
 script(src='/js/bootstrap.min.js')
 script(src='/js/createSale.js')
+script(src='/js/sale.js')
   
