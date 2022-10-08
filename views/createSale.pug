@@ -13,7 +13,8 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-order' name='salesForm')
+                    form(method='POST' action='/sale/new-order' name='salesForm' id='salesForm')
+                        p {{sale1}}
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
@@ -40,7 +41,7 @@ html(lang="en")
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='amount') Amount
-                                input#amount.form-control(type='number' name='amount')
+                                input#amount.form-control(type='number' name='amount' v-model='sale1')
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='agent') Sales Agent
                                 input#agent.form-control(type='text' name='agent')
@@ -57,8 +58,8 @@ html(lang="en")
                     a(href='/sale') Sales
                     br
                     a(href='/sale/sales-list') View Order List
-                    
-                   
+script(src='https://unpkg.com/vue@3/dist/vue.global.js')
+script(src='/js/vue.js')                  
 script(src='/js/bootstrap.min.js')
 script(src='/js/createSale.js')
 script(src='/js/sale.js')

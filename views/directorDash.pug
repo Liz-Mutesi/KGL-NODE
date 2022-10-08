@@ -34,7 +34,7 @@ head
         i.bx.bx-cog
         span.links Settings
     li.log_out
-      a(href='#')
+      a(href='/logout')
         i.bx.bx-log-out
         span.links Log out
 section.home-section
@@ -51,32 +51,33 @@ section.home-section
     .home-content
         .overview-boxes
             .box
-                .right-side
-                .box-topic Total Purchases
-                .number 38,258,000
-            .box
-                .right-side
-                .box-topic Total Sales
-                .number 46,365 Kgs
-            .box
-                .right-side
-                .box-topic Credit Sales
-                .number 22,086,000
-            .box
-                .right-side
-                .box-topic Total Revenue
-                .number 80,092,000
-        .container
-          .progress-boxes
-            .box
                 .chart(data-percent='90') 90%
                   h2 Monthly Sales
             .box
-              .chart(data-percent='72') 72%
-                h2 Quaterly Sales
+                .chart(data-percent='72') 72%
+                  h2 Quaterly Sales
             .box
-              .chart(data-percent='81') 81%
-                h2 Annual Target
+                .chart(data-percent='81') 81%
+                  h2 Annual Target
+    .home-content
+        .overview-boxes
+            .box
+                .right-side
+                .box-topic Total Purchases
+                .number 
+            .box
+                .right-side
+                .box-topic Total Sales
+                .number #{sales}
+            .box
+                .right-side
+                .box-topic Credit Sales
+                .number #{credit}
+            .box
+                .right-side
+                .box-topic Total Revenue
+                .number #{totalSales}
+        
 script.
   let sidebar = document.querySelector(".sidebar");
   let sidebarBtn = document.querySelector(".sidebarBtn");

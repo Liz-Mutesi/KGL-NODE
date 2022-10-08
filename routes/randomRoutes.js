@@ -6,6 +6,7 @@ const imageModel = require("../models/imageModel");
 const { isDirector, isManager, isSalesAgent, isManagerOrSalesAgent } = require("../authz/authorization");
 const productModel = require("../models/productModel");
 const saleModel = require("../models/saleModel");
+const creditSaleModel = require("../models/creditSaleModel");
 
 
 
@@ -44,8 +45,48 @@ const upload = multer({
 
 
 
- router.get("/directorDash",connectEnsureLogin.ensureLoggedIn(), isDirector, (req, res) => {
-     res.render("directorDash")
+ router.get("/directorDash",connectEnsureLogin.ensureLoggedIn(), isDirector, async(req, res) => {
+    const creditSales = await creditSaleModel.aggregate([{
+        "$group": {
+            _id:"$all",
+            amount:{$sum:"$amount"}
+        }
+    }])
+    const JinjaCreditSales = await creditSaleModel.aggregate([
+        {
+            $match: { branch: "Jinja" }
+         },
+      
+        {
+        "$group": {
+            _id:"$all",
+            amount:{$sum:"$amount"}
+        }
+    }])
+    const MubendeCreditSales = await creditSaleModel.aggregate([
+        {
+            $match: { branch: "Mubende" }
+         },
+      
+        {
+        "$group": {
+            _id:"$all",
+            amount:{$sum:"$amount"}
+        }
+    }])
+    const cashSales = await saleModel.aggregate([{
+        "$group": {
+            _id:"$all",
+            amount:{$sum:"$amount"}
+        }
+    }])
+    console.log(creditSales)
+     res.render("directorDash", {
+        credit: (creditSales[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
+        sales: (cashSales[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
+        totalSales: (creditSales.length > 0 && cashSales.length > 0) ?creditSales[0].amount + cashSales[0].amount : 0
+
+     })
 })
  router.get("/managerDash",connectEnsureLogin.ensureLoggedIn(), isManager, async(req, res) => {
     try {
