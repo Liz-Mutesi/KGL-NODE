@@ -2,6 +2,7 @@ doctype html
 head
     meta(charset='UTF-8')
     link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet')
+    link(rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
     link(rel='stylesheet' href='/css/directorDash.css')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
 .sidebar
@@ -11,31 +12,38 @@ head
   ul.nav-links
     li
       a.active(href='#')
-        i.bx.bx-grid-alt
+        span.material-symbols-sharp
+            | grid_view
         span.links Dashboard
     li
       a(href='/product/product-list')
-        i.bx.bx-box
+        span.material-symbols-sharp
+            | shopping_bag 
         span.links Purchases
     li
       a(href='/sale/sales-list')
-        i.bx.bx-money
+        span.material-symbols-sharp
+            | receipt_long
         span.links Sales
     li
       a(href='#')
-        i.bx.bx-bar-chart
+        span.material-symbols-sharp
+            | monitoring
         span.links Analytics
     li
       a(href='#')
-        i.bx.bx-list-ul
+        span.material-symbols-sharp
+            | inventory
         span.links Stock
     li
       a(href='#')
-        i.bx.bx-cog
+        span.material-symbols-sharp
+            | settings    
         span.links Settings
     li.log_out
       a(href='/logout')
-        i.bx.bx-log-out
+        span.material-symbols-sharp
+            | logout
         span.links Log out
 section.home-section
     nav
@@ -64,7 +72,7 @@ section.home-section
             .box
                 .right-side
                 .box-topic Total Purchases
-                .number 
+                .number #{products} 
             .box
                 .right-side
                 .box-topic Total Sales
@@ -88,3 +96,15 @@ script.
   }else
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
   }
+script(type='text/javascript').
+  $(function() {
+  $('.chart').easyPieChart({
+  size: 160,
+  barColor: "#36e617",
+  scaleLength: 0,
+  lineWidth: 15,
+  trackColor: "#525151",
+  lineCap: "circle",
+  animate: 2000,
+  });
+  });

@@ -80,26 +80,18 @@ color: rgba(0, 128, 0, 0.973);
 border-radius: 15px;
 margin-bottom: 20rem;
 }
+.signup {
+  text-decoration: underline;
+  color:rgba(0, 128, 0, 0.973) ;
+  float:inline-end;
+  font-weight: 500;
+}
 .bg-main {
-
-/* background: url() no-repeat contain; */
-
-  /* The background image */
   background-image: linear-gradient(rgba(0, 128, 0, 0.973), rgb(151, 212, 8));
-
-  /* Set a specified height, or the minimum height for the background image */
   min-height: 100vh;
-
-  /* Set background image to fixed (don't scroll along with the page) */
   background-attachment: fixed;
-
-  /* Center the background image */
   background-position: center;
-
-  /* Set the background image to no repeat */
   background-repeat: no-repeat;
-
-  /* Scale the background image to be as large as possible */
   background-size: cover;
 }
 

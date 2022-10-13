@@ -39,7 +39,8 @@ router.post("/new-order", async (req, res)=> {
 router.get("/sales-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res)=> {
     try{
-        let items = await saleModel.find()
+        let items = await saleModel.find({
+            branch: req.user.branch})
         let name = req.user.firstname
         let branch = req.user.branch
         let totalSales = await saleModel.aggregate([

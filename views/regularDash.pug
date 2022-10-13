@@ -5,55 +5,112 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
-        link(rel='stylesheet' href='/css/nav.css')
-        link(rel='stylesheet' href='/css/managerDash.css')
+        link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet')
+        link(rel='stylesheet' href='/css/directorDash.css')
         link(rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
         title Karibu Groceries
     body
-       .sidebar
-            br
+        .sidebar
             .logo-details
-                i.bx.bxl-c-plus-plus
-                span.logo_name KARIBU GROCERIES
+                i.bx.bx
+                span.logo_name Karibu Groceries
             ul.nav-links
                 li
-                a(href='/sale/new-order')
-                    span.material-symbols-sharp
-                        | payments
-                    span.links_name Record Cash Sale
+                    a.active(href='/regularDash')
+                        span.material-symbols-sharp
+                            | grid_view
+                        span.links Dashboard
                 li
-                a(href='/sale/new-credit')
-                    span.material-symbols-sharp
-                        | credit_card
-                    span.links_name Record Credit Sale
+                    a(href='/sale/new-order')
+                        span.material-symbols-sharp
+                            | receipt_long
+                        span.links Record Cash Sale
                 li
-                a(href='/sale/sales-list')
-                    span.material-symbols-sharp
-                        | edit_square
-                    span.links_name Manage Sales
+                    a(href='/sale/new-order')
+                        span.material-symbols-sharp
+                            | credit_card
+                        span.links Record Credit Sale
                 li
-                a(href='#')
-                    span.material-symbols-sharp
-                        | people
-                    span.links_name Customers
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | list
+                        select#sales-link
+                            option(value="" selected disabled) Sales Lists
+                            //option(value="")
+                            option(value="Cash" data-link="/sale/sales-list") Cash Sales 
+                                
+                            option(value="Credits" data-link="/sale/credit-list") Credit Sales
+                        span.links 
                 li
-                a(href='#')
-                    span.material-symbols-sharp
-                        | receipt
-                    span.links_name Generate Receipt
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | people
+                        span.links Customers
                 li
-                a(href='#')
-                    span.material-symbols-sharp
-                        | description
-                    span.links_name Generate Invoice
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | inventory
+                        span.links_name Stock
                 li
-                a(href="/logout")
-                    span.material-symbols-sharp
-                        | logout
-                    span.links_name Logout
-    .nav
-        .nav-links
-            ul
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | receipt
+                        span.links_name Generate Receipt
+                li
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | description
+                        span.links_name Generate Invoice
+                li.log_out
+                    a(href='/logout')
+                        span.material-symbols-sharp
+                            | logout
+                        span.links Log out
+        section.home-section
+            nav
+                .sidebar-button
+                    i.bx.bx-menu.sidebarBtn
+                    span.dashboard Dashboard
+                .search-box
+                    input(type='text' placeholder='Search...')
+                    i.bx.bx-search
+                .profile-details
+                    // <img src="images/profile.jpg" alt="">
+                    span.admin_name Welcome,  #{user.firstname}
+            .home-content
+                .all
+                    .circle-wrap
+                        .circle
+                        .mask.full-1
+                            .fill-1
+                        .mask.half
+                            .fill-1
+                        .inside-circle  85% 
+                    .circle-wrap
+                        .circle
+                        .mask.full-2
+                            .fill-2
+                        .mask.half
+                            .fill-2
+                        .inside-circle  65% 
+                    .circle-wrap
+                        .circle
+                        .mask.full-3
+                            .fill-3
+                        .mask.half
+                            .fill-3
+                        .inside-circle  75% 
 
-               
-
+script(src='/js/bootstrap.min.js')
+script.
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+  }else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+script(src="/js/sale.js")
+   

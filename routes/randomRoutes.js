@@ -80,11 +80,19 @@ const upload = multer({
             amount:{$sum:"$amount"}
         }
     }])
+    const purchases = await productModel.aggregate([{
+        "$group": {
+            _id:"$all",
+            amount:{$sum:"$amount"}
+        }
+    }])
+    const total = (creditSales.length > 0 && cashSales.length > 0) ?creditSales[0].amount + cashSales[0].amount : 0 
     console.log(creditSales)
      res.render("directorDash", {
         credit: (creditSales[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
         sales: (cashSales[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
-        totalSales: (creditSales.length > 0 && cashSales.length > 0) ?creditSales[0].amount + cashSales[0].amount : 0
+        products: (purchases[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
+        totalSales: total.toLocaleString("en", {style : "currency", currency:"UGX"})
 
      })
 })

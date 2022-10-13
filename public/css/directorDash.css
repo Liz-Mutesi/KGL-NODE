@@ -89,6 +89,24 @@
   width: calc(100% - 60px);
   left: 60px;
 }
+.sidebar .material-symbols-sharp{
+  min-width: 60px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+#sales-link{
+background-color: rgba(0, 128, 0, 0.973);
+color: #fff;
+border: none;
+}
+.sidebar .links_name{
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  color: #fff;
+}
+
 .home-section nav{
   display: flex;
   justify-content: space-between;
@@ -212,8 +230,8 @@ nav .profile-details i{
 }
 .home-content .box .number{
   display: inline-block;
-  font-size: 34px;
-  margin-top: 6px;
+  font-size: 24px;
+  margin-top: 16px;
   font-weight: 500;
 }
 .home-content .progress-boxes{
@@ -222,7 +240,7 @@ nav .profile-details i{
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding: 0 20px;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 .container .box .chart {
   position: relative;
@@ -234,8 +252,56 @@ nav .profile-details i{
   height: 160px;
   color: #fff;
 }
+
+@media (min-width: 420px) and (max-width: 659px) {
+  .overview-boxes .chart {
+    grid-template-columns: repeat(2, 160px);
+  }
+}
+
+@media (min-width: 660px) and (max-width: 899px) {
+  .overview-boxes .chart {
+    grid-template-columns: repeat(3, 160px);
+  }
+}
+
+@media (min-width: 900px) {
+  .overview-boxes .chart {
+    grid-template-columns: repeat(3, 160px);
+  }
+}
+
+.overview-boxes .chart {
+  width: 100%;
+}
+
+.container .box h2 {
+  display: block;
+  text-align: center;
+  color: blue;
+}
+
+.overview-boxes .chart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  height: 160px;
+  color: #000;
+}
+
+.container .box canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100%;
+}
+
 /* Responsive Media Query */
-@media (max-width: 1240px) {
+/* @media (max-width: 1240px) {
   .sidebar{
     width: 60px;
   }
@@ -248,7 +314,7 @@ nav .profile-details i{
   }
   .sidebar.active ~ .home-section{
     /* width: calc(100% - 220px); */
-    overflow: hidden;
+    /* overflow: hidden;
     left: 220px;
   }
   .home-section nav{
@@ -325,4 +391,4 @@ nav .profile-details i{
     left: 60px;
     width: calc(100% - 60px);
   }
-}
+}  */
