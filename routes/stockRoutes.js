@@ -9,23 +9,22 @@ const router = express.Router()
 router.get("/", connectEnsureLogin.ensureLoggedIn(), isManager,
 async (req, res) => {
     const stock = await stockModel.find({})
-    res.render("product", {
+    res.render("stock", {
         title: "inventory", stock
 
     })
 })
-router.get("/product/stock/stock-form", connectEnsureLogin.ensureLoggedIn(), isManager, 
-async (req, res)=> {
-try {
-    res.render("stockForm")
-} catch (error) {
-    
-}
-  
+router.get("/new-stock",connectEnsureLogin.ensureLoggedIn(), isManager, 
+ async (req, res) => {
+    const stockList = await stockModel.find({branch:req.user.branch})
+    res.render("stockForm", {
+        title: "New Stock",
+        stockList
+    })
 })
 
 //error handling(try....catch)
-router.post("/product/stock/newStock", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
+router.post("/stock/newStock", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
     try{
         const newStock = new stockModel(req.body)
         await newStock.save()
@@ -37,26 +36,37 @@ router.post("/product/stock/newStock", connectEnsureLogin.ensureLoggedIn(), isMa
         
     }
 })
-
-router.get("/product/stock/stock-list", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
+router.post("/new-stock", async (req, res)=> {
+    try{
+        const newStock = new stockModel(req.body)
+        await newStock.save()
+        res.redirect("/stock/new-stock")
+        console.log(req.body)
+    }
+    catch(err){
+        res.status(400).render("stockForm")
+        
+    }
+})
+router.get("/stock-list", connectEnsureLogin.ensureLoggedIn(), isManager, async (req, res)=> {
     try{
         let stocks = await stockModel.find({
        
         })
         let name = req.user.firstname
         let  branch = req.user.branch
-        let totalPurchases = await stockModel.aggregate([
-            {
+        let totalStock = await stockModel.aggregate([
+             {
                 '$group':{
-                    _id:'$all',
-                    totalExpenses:{$sum:'$amount'},
-                    totalTonnage: {$sum:'$quantity'}
-                }
-            }
-        ])
+                     _id:'$all',
+                     totalExpenses:{$sum:'$amount'},
+                     totalTonnage: {$sum:'$quantity'}
+                 }
+             }
+         ])
         res.render("stockList", {
             stocks : stocks,
-            totalPurchases: totalPurchases[0],
+            totalStock: totalStock[0],
             name:name,
             branch
         })
@@ -69,7 +79,7 @@ router.get("/product/stock/stock-list", connectEnsureLogin.ensureLoggedIn(), isM
     }
 })
 //delete route
-router.post("/product/stock/stock-list", async (req, res)=>{
+router.post("/stock/stock-list", async (req, res)=>{
     try{
         await stockModel.deleteOne({
             _id: req.body._id 

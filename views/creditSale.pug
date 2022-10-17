@@ -13,11 +13,11 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-credit' name='RegForm' onsubmit='return validationForm()')
+                    form(method='POST' action='/sale/new-credit' name='RegForm' onsubmit='return validateForm()')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
-                                select.form-control#branch(name="branch", style='padding:10px' required)
+                                select.form-control#branch(name="branch", onsubmit='return validateForm()', style='padding:10px' required)
                                     option(value="" selected disabled) Select Branch
                                     option(value="Jinja") Jinja
                                     option(value="Mubende") Mubende
@@ -67,11 +67,6 @@ html(lang="en")
                     a(href='/sale') Sales Dashboard
                     br
                     a(href='/sale/credit-list') View Credit List
-
-
-
-
-
 script(src='/js/credit.js')                
 script(src='/js/bootstrap.min.js')
 

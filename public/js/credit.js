@@ -1,4 +1,4 @@
-function validationForm(){
+function validateForm(){
     let buyer = document.forms["RegForm"]["buyer"];
     let location = document.forms["RegForm"]["location"];
     let itemName = document.forms["RegForm"]["itemName"];

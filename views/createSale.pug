@@ -13,7 +13,7 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-order' name='salesForm' id='salesForm')
+                    form(method='POST' action='/sale/new-order', onsubmit='validateForm()', name='salesForm' id='salesForm')
                         p {{sale1}}
                         .mb-3.row
                             .col-md-6

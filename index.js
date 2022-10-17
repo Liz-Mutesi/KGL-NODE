@@ -12,6 +12,7 @@ const signUpRoutes = require("./routes/signUpRoutes")
 const loginRoutes = require("./routes/loginRoutes")
 const randomRoutes = require("./routes/randomRoutes")
 const bossesRoutes = require("./routes/bossesRoutes")
+const stockRoutes = require("./routes/stockRoutes")
 
 
 
@@ -80,6 +81,7 @@ app.use("/sale", saleRoutes)
 app.use("/", signUpRoutes)
 app.use("/", loginRoutes)
 app.use("/", randomRoutes)
+app.use("/", stockRoutes)
 app.use("/", bossesRoutes)
 
 

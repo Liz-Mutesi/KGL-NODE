@@ -30,6 +30,6 @@ type: {
 }
 })
 
-module.exports = mongoose.model("Product",stockSchema)
+module.exports = mongoose.model("Stock",stockSchema)
 
 
