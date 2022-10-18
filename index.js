@@ -46,7 +46,7 @@ app.set("view engine", "pug")
 
 //db connect
 //mongodb://localhost:27017
-mongoose.connect("mongodb://localhost:27017/KARIBU", {
+mongoose.connect("mongodb://127.0.0.1/KARIBU", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 },

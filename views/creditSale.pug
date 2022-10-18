@@ -38,14 +38,20 @@ html(lang="en")
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='itemName') Item
-                                input#itemName.form-control(type='text' name='itemName')
-                        .mb-3.row
+                                select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
+                                    option(value="" selected disabled) Select Item
+                                    each product in productList
+                                        option(value=product.itemName data-price=product.price) #{product.itemName}    
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='type') Type
                                 input#type.form-control(type='text' name='type')
+                        .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
                                 input#quantity.form-control(type='number' name='quantity')
+                            .col-md-6
+                                label.col-sm-2.col-form-label(for='price') Price
+                                input#price.form-control(type='number' name='price')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='amount') Amount Due
@@ -62,12 +68,11 @@ html(lang="en")
                                 input#date.form-control(type='date' name='dispatchDate')
                             
 
-                        button.btn.btn-primary(type='submit') Submit
+                        button.btn.btn-primary(type='submit' value='submit' name='submit' onclick='validateForm()') Submit
                                 br
                     a(href='/sale') Sales Dashboard
                     br
                     a(href='/sale/credit-list') View Credit List
-script(src='/js/credit.js')                
+script(src='/js/credit.js') 
+script(src='/js/createSale.js')               
 script(src='/js/bootstrap.min.js')
-
-  

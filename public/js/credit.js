@@ -1,4 +1,5 @@
 function validateForm(){
+    let branch = document.forms["RegForm"]["branch"];
     let buyer = document.forms["RegForm"]["buyer"];
     let location = document.forms["RegForm"]["location"];
     let itemName = document.forms["RegForm"]["itemName"];
@@ -13,7 +14,8 @@ function validateForm(){
 
     
     
-    buyerRegex = /^[A-Za-z]{2,}+ [A-Za-z]+$/
+    branchRegex = /^[A-Za-z]+$/
+    buyerRegex = /^[A-Za-z]{2,}+ [A-Za-z]{2,}+$/
     locationRegex = /^[A-Za-z0-9]+$/
     itemName =  /^[A-Za-z]+$/
     ninRegex = /^[C-M]{2}[0-9]{1,9}[A-Z]*$/
@@ -27,8 +29,16 @@ function validateForm(){
     // alphaNumeric = /^[A-Za-z0-9]+$/
 
     
-    if(buyer.value === ""|| !buyerRegex.test(buyer.value)){
-        //alert("Please enter customer name");
+    if(branch.value == ""|| !branchRegex.test(branch.value)){
+        alert("Please enter branch name");
+        branch.style.border = "2px solid red";
+        branchr.focus();
+        return false;
+    }
+    else {branch.style.border = "2px solid green";
+    }
+    if(buyer.value == ""|| !buyerRegex.test(buyer.value)){
+        alert("Please enter customer name");
         buyer.style.border = "2px solid red";
         buyer.focus();
         return false;

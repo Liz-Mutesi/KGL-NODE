@@ -7,11 +7,12 @@ head
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
 .sidebar
   .logo-details
-    i.bx.bx
-    span.logo_name Karibu Groceries
+    i.bx.bx 
+    img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
+    span.logo_name
   ul.nav-links
     li
-      a.active(href='#')
+      a.active(href='/directorDash' id='sideNav1')
         span.material-symbols-sharp
             | grid_view
         span.links Dashboard
@@ -46,6 +47,7 @@ head
             | logout
         span.links Log out
 section.home-section
+  .container 
     nav
         .sidebar-button
             i.bx.bx-menu.sidebarBtn
@@ -63,28 +65,29 @@ section.home-section
                   h2 Monthly Sales
             .box
                 .chart(data-percent='72') 72%
-                  h2 Quaterly Sales
+                  h2 Quarterly Sales
             .box
                 .chart(data-percent='81') 81%
                   h2 Annual Target
-    .home-content
-        .overview-boxes
-            .box
-                .right-side
-                .box-topic Total Purchases
-                .number #{products} 
-            .box
-                .right-side
-                .box-topic Total Sales
-                .number #{sales}
-            .box
-                .right-side
-                .box-topic Credit Sales
-                .number #{credit}
-            .box
-                .right-side
-                .box-topic Total Revenue
-                .number #{totalSales}
+    .container
+      .home-content
+          .overview-boxes
+              .box
+                  .right-side
+                  .box-topic Total Purchases
+                  .number #{products} 
+              .box
+                  .right-side
+                  .box-topic Total Sales
+                  .number #{sales}
+              .box
+                  .right-side
+                  .box-topic Credit Sales
+                  .number #{credit}
+              .box
+                  .right-side
+                  .box-topic Total Revenue
+                  .number #{totalSales}
         
 script.
   let sidebar = document.querySelector(".sidebar");

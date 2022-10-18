@@ -13,10 +13,11 @@ body
     .sidebar
         .logo-details
             i.bx.bx
-            span.logo_name Karibu Groceries
+             img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
+            span.logo_name 
         ul.nav-links
             li
-                a.active(href='/managerDash')
+                a.active(href='/managerDash' id='sideNav1')
                     span.material-symbols-sharp
                         | grid_view
                     span.links Dashboard
@@ -45,6 +46,11 @@ body
                     span.material-symbols-sharp
                         | inventory
                     span.links_name Stock
+            li.log_out
+                    a(href='/logout')
+                        span.material-symbols-sharp
+                            | logout
+                        span.links Log out
     .container
         h3(style='color:rgb(0, 128, 0, 0.973)')
         h5 #{branch} Branch
@@ -101,11 +107,9 @@ body
                                     span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
                                             | edit
             .div                       
-                a.btn.btn-warning(href='/product/product-form') Record Another Purchase
-                br
-                a.btn.btn-warning(href='/product') Purchase Dashboard
-                br
-                a.btn.btn-warning(href="/logout") Log out
+                a.btn.btn-warning(href='/product/product-form', id='neworder') Record Another Purchase
+                a.btn.btn-warning(href='/product', id='home-btn') Purchase Dashboard
+                
         else
             p No items listed
         

@@ -1,29 +1,39 @@
-.sidebar
-        .logo-details
-            i.bx.bx
-            span.logo_name Karibu Groceries
-        ul.nav-links
-            li
-                a.active(href='#')
-                    i.bx.bx-grid-alt
-                    span.links Dashboard
-            li
+        
+        //- nav.navbar.navbar-expand-lg(style='background-color:rgba(0, 128, 0, 0.973)')
+        //-         a.Navbar.logo.navbar-brand(href='#')
+        //-             p KARIBU GROCERIES LTD     
+        .sidebar
+            br
+            .logo-details
+                h3 KARIBU GROCERIES
+            ul.nav-links
+                li
+                a(href='/managerDash')
+                    span.material-symbols-sharp
+                        | grid_view
+                    span.links_name Home
+                li
+                a(href='/product/product-form')
+                    span.material-symbols-sharp
+                        | description
+                    span.links_name New Purchase
+                li
                 a(href='/product/product-list')
-                    i.bx.bx-box
-                    span.links Purchases
-            li
-                a(href='/sale/sales-list')
-                    i.bx.bx-money
-                    span.links Sales
-            li
+                    span.material-symbols-sharp
+                        | edit_square
+                    span.links_name Manage Purchases
+                li
+                a(href='/product/stock-list')
+                    span.material-symbols-sharp
+                        | inventory
+                    span.links_name Stock List
+                li
                 a(href='#')
-                    i.bx.bx-bar-chart
-                    span.links Customers
-            li
-                a(href='#')
-                    i.bx.bx-list-ul
-                    span.links Stock
-            li.log_out
-                a(href='/logout')
-                    i.bx.bx-log-out
-                    span.links Log out
+                    span.material-symbols-sharp
+                        | report
+                    span.links_name Reports
+                li
+                a(href="/logout")
+                    span.material-symbols-sharp
+                        | logout
+                    span.links_name Logout

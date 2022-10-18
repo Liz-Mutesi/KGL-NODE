@@ -12,15 +12,16 @@ body
     .sidebar
         .logo-details
             i.bx.bx
-            span.logo_name Karibu Groceries
+            img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
+            span.logo_name
         ul.nav-links
             li
-                a.active(href='/managerDash')
+                a.active(href='/managerDash' id='sideNav1')
                     span.material-symbols-sharp
                         | grid_view
                     span.links Dashboard
             li
-                a(href='/product/product-list')
+                a(href='/product')
                     span.material-symbols-sharp
                         | shopping_bag
                     span.links Purchases
@@ -66,28 +67,17 @@ body
                 // <img src="images/profile.jpg" alt="">
                 span.admin_name Hello #{user.firstname}
         .home-content
-            .all
-            .circle-wrap
-                .circle
-                .mask.full-1
-                    .fill-1
-                .mask.half
-                    .fill-1
-                .inside-circle  85% 
-            .circle-wrap
-                .circle
-                .mask.full-2
-                    .fill-2
-                .mask.half
-                    .fill-2
-                .inside-circle  65% 
-            .circle-wrap
-                .circle
-                .mask.full-3
-                    .fill-3
-                .mask.half
-                    .fill-3
-                .inside-circle  75% 
+            .overview-boxes
+                .box
+                    .chart(data-percent='90') 90%
+                        h2 Monthly Sales
+                .box
+                    .chart(data-percent='72') 72%
+                        h2 Quaterly Sales
+                .box
+                    .chart(data-percent='81') 81%
+                        h2 Annual Target
+        
 
 
 script(src='/js/bootstrap.min.js')

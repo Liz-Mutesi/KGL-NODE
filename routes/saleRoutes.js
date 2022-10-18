@@ -80,8 +80,10 @@ async (req, res)=> {
 //credit sale route
 router.get("/new-credit", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, 
 async (req, res) => {
+    const productList = await productModel.find({branch:req.user.branch})
     res.render("creditSale", {
-        title: "New Credit Sale",
+        title: "New Credit",
+        productList
     })
 })
 
