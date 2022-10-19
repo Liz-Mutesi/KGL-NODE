@@ -12,10 +12,11 @@ body
     .sidebar
         .logo-details
             i.bx.bx
-            span.logo_name Karibu Groceries
+                img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
+            span.logo_name
         ul.nav-links
             li
-                a.active(href='#')
+                a.active(href='/managerDash'  id='sideNav1')
                     span.material-symbols-sharp
                         | grid_view
                     span.links Dashboard
@@ -44,6 +45,11 @@ body
                     span.material-symbols-sharp
                         | description
                     span.links_name Generate Invoice
+            li.log_out
+                a(href='/logout')
+                    span.material-symbols-sharp
+                        | logout
+                    span.links Log out
     .container
         h3(style='color:rgb(0, 128, 0, 0.973)') #{branch} Branch
         h5 Hello, #{name}
@@ -94,7 +100,7 @@ body
             .div
                 a.btn.btn-warning(href='/sale/new-order') Record Another Sale
                 a.btn.btn-warning(href='/sale') Sales Dashboard
-                a.btn.btn-warning(href="/logout") Log out
+            
         else
             p There are no registered orders posted
         

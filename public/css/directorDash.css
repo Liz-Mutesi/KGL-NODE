@@ -52,14 +52,12 @@
 /* .sidebar .nav-links li a.active{
   background: #fff;
   color:rgba(0, 128, 0, 0.973); 
-}
-.sidebar .nav-links li a:hover{
-  background-color: #fff;
-  color:rgba(0, 128, 0, 0.973) ;
 } */
 .sidebar .nav-links li a:hover{
+  background-color: #fff;
   color:rgba(0, 128, 0, 0.973);
-}
+} 
+
 .sidebar .nav-links li i{
   min-width: 60px;
   text-align: center;
@@ -73,7 +71,7 @@
   white-space: nowrap;
 }
 .sidebar .nav-links .log_out{
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
 }
@@ -218,7 +216,7 @@ nav .profile-details i{
   width: calc(100% / 4 - 15px);
   background: #fff;
   padding: 15px 14px;
-  border-radius: 50%;
+  border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   height: 150px;
 }

@@ -17,15 +17,15 @@ head
             | grid_view
         span.links Dashboard
     li
-      a(href='/product/product-list')
+      a(href='#')
         span.material-symbols-sharp
-            | shopping_bag 
-        span.links Purchases
+            | person 
+        span.links Suppliers
     li
-      a(href='/sale/sales-list')
+      a(href='#')
         span.material-symbols-sharp
-            | receipt_long
-        span.links Sales
+          | people
+        span.links Customers
     li
       a(href='#')
         span.material-symbols-sharp
@@ -36,11 +36,12 @@ head
         span.material-symbols-sharp
             | inventory
         span.links Stock
-    li
-      a(href='#')
-        span.material-symbols-sharp
-            | settings    
-        span.links Settings
+    //- li
+    //-   a(href='#')
+    //-     span.material-symbols-sharp
+    //-         | settings    
+    //-     span.links Settings
+    br
     li.log_out
       a(href='/logout')
         span.material-symbols-sharp
@@ -48,7 +49,8 @@ head
         span.links Log out
 section.home-section
   .container 
-    nav
+    div
+      nav
         .sidebar-button
             i.bx.bx-menu.sidebarBtn
             span.dashboard Dashboard
@@ -58,56 +60,56 @@ section.home-section
         .profile-details
             // <img src="images/profile.jpg" alt="">
             span.admin_name Andrew Orban
-    .home-content
-        .overview-boxes
-            .box
-                .chart(data-percent='90') 90%
-                  h2 Monthly Sales
-            .box
-                .chart(data-percent='72') 72%
-                  h2 Quarterly Sales
-            .box
-                .chart(data-percent='81') 81%
-                  h2 Annual Target
-    .container
       .home-content
+        div
           .overview-boxes
-              .box
-                  .right-side
+            .box
+              .chart(data-percent='90') 90%
+              h2 Monthly Sales
+            .box
+              .chart(data-percent='72') 72%
+              h2 Quarterly Sales
+            .box
+              .chart(data-percent='81') 81%
+              h2 Annual Target
+      .container
+        .home-content
+          .overview-boxes
+            .box
+                .right-side
                   .box-topic Total Purchases
                   .number #{products} 
-              .box
-                  .right-side
-                  .box-topic Total Sales
-                  .number #{sales}
-              .box
-                  .right-side
-                  .box-topic Credit Sales
-                  .number #{credit}
-              .box
-                  .right-side
-                  .box-topic Total Revenue
-                  .number #{totalSales}
-        
-script.
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".sidebarBtn");
-  sidebarBtn.onclick = function() {
-  sidebar.classList.toggle("active");
-  if(sidebar.classList.contains("active")){
-  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
-  }else
-  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-  }
-script(type='text/javascript').
-  $(function() {
-  $('.chart').easyPieChart({
-  size: 160,
-  barColor: "#36e617",
-  scaleLength: 0,
-  lineWidth: 15,
-  trackColor: "#525151",
-  lineCap: "circle",
-  animate: 2000,
-  });
-  });
+            .box
+                .right-side
+                .box-topic Total Sales
+                .number #{sales}
+            .box
+                .right-side
+                .box-topic Credit Sales
+                .number #{credit}
+            .box
+                .right-side
+                .box-topic Total Revenue
+                .number #{totalSales}   
+  script.
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+    sidebar.classList.toggle("active");
+    if(sidebar.classList.contains("active")){
+    sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+    }else
+    sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+  script(type='text/javascript').
+    $(function() {
+    $('.chart').easyPieChart({
+    size: 160,
+    barColor: "#36e617",
+    scaleLength: 0,
+    lineWidth: 15,
+    trackColor: "#525151",
+    lineCap: "circle",
+    animate: 2000,
+    });
+    });

@@ -12,9 +12,24 @@ body {
     background-color: #f4f4f4;
     
 }
+.container-list {
+    position: relative;
+    width: (100% - 220px);
+    margin-left: 232px;
+    /* padding-left: 10%; */
+    margin-top: -34rem;
+    background-color: #f4f4f4;
+}
 table {
     width: (100%-226px);
     margin-left: -1px;
+    border: 1px solid;
+    margin-top: 0;
+    
+}
+#credit-table {
+    width: (100%-220px);
+    margin-left: 13rem;
     border: 1px solid;
     margin-top: 0;
     
@@ -38,6 +53,11 @@ tr:nth-child(even) {
 
 h3 {
     color: rgb(0, 128, 0, 0.973);
+}
+#title{
+    color: rgb(0, 128, 0, 0.973);
+    float: right;
+    margin-right: -60px;
 }
 p{
     font-weight:900;
