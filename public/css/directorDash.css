@@ -215,8 +215,8 @@ nav .profile-details i{
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 20px;
-  margin-bottom: 26px;
+  padding: 0 10px;
+  margin-bottom: -10px;
 }
 .overview-boxes .box{
   display: relative;
@@ -228,6 +228,7 @@ nav .profile-details i{
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   height: 150px;
+  margin-top: -20px;
 }
 .overview-boxes .box-topic{
   font-size: 22px;
@@ -241,20 +242,21 @@ nav .profile-details i{
   margin-top: 16px;
   font-weight: 500;
 }
-.home-content .progress-boxes{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 0 20px;
-  margin-bottom: 20px;
+.home-content .overview-boxes .box1{
+  display: relative;
+  padding: 0 10px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
 .container .box .chart {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 160px;
   height: 160px;
   color: #fff;
@@ -282,10 +284,12 @@ nav .profile-details i{
   width: 100%;
 }
 
-.container .box h2 {
-  display: block;
+.container .box .number {
+  display: relative;
   text-align: center;
-  color: blue;
+  font-size: 20px;
+  font-weight: 500;
+ 
 }
 
 .overview-boxes .chart {
@@ -295,7 +299,7 @@ nav .profile-details i{
   text-align: center;
   font-size: 16px;
   line-height: 40px;
-  height: 160px;
+  height: 160x;
   color: #000;
 }
 
@@ -316,7 +320,4 @@ nav .profile-details i{
 }
 #sideNav1{
   margin-top: 3rem;
-}
-h2{
-  font-size: 28px;
 }

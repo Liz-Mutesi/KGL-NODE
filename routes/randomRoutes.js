@@ -113,9 +113,18 @@ const upload = multer({
                 amount:{$sum:"$amount"}
             }
         }])
+        const cashSalesmgr = await saleModel.aggregate([{
+            "$group": {
+                _id:"$all",
+                amount:{$sum:"$amount"}
+            }
+        }])
+        
+        
      res.render("managerDash", {
         product : productList,
         totalProducts: (purchasesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
+        mgrSales: (cashSalesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
      })
     } catch (error) {
         

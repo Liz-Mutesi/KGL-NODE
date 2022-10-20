@@ -90,5 +90,5 @@ app.use("/", bossesRoutes)
 
 
 // always the last line in the information
-app.listen(process.env.port || 5000)
-console.log("server running on port" + (process.env.port || 5000))
+app.listen(process.env.port || 8000)
+console.log("server running on port" + (process.env.port || 8000))

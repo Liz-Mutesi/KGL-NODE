@@ -71,13 +71,16 @@ body
             .overview-boxes
                 .box
                     .chart(data-percent='90') 90%
-                        h2 Monthly Sales
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Sales
                 .box
                     .chart(data-percent='72') 72%
-                        h2 Quaterly Sales
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Quaterly Sales
                 .box
                     .chart(data-percent='81') 81%
-                        h2 Annual Target
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Annual Target
+                .box
+                    .chart(data-percent='81') 81%
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Total Tonnage Sold
         .container
             .home-content
             .overview-boxes
@@ -88,15 +91,15 @@ body
                 .box
                     .right-side
                         .box-topic Cash Sales
-                        .numbers #{sales}
+                        .numbers #{mgrSales}
                 .box
                     .right-side
                         .box-topic Credit Sales
-                        .numbers #{credit}
+                        .numbers #{totalcredit}
                 .box
                     .right-side
                         .box-topic Total Revenue
-                        .numbers #{totalSales}   
+                        .numbers #{totalSalesmgr}   
             
 
 

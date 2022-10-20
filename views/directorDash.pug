@@ -63,34 +63,31 @@ section.home-section
       .home-content
         div
           .overview-boxes
-            .box
-              .chart(data-percent='90') 90%
-              h2 Monthly Sales
-            .box
-              .chart(data-percent='72') 72%
-              h2 Quarterly Sales
-            .box
-              .chart(data-percent='81') 81%
-              h2 Annual Target
+            .box1
+              .box-topic Monthly Sales
+              .number #{sales} 
+            .box1
+              .box-topic Quarterly Sales
+              .number #{sales}
+            .box1
+              .box-topic Annual Sales
+              .number 
       .container
         .home-content
           .overview-boxes
             .box
-                .right-side
-                  .box-topic Total Purchases
-                  .number #{products} 
+                .box-topic Total Purchases
+                .number #{products} 
             .box
-                .right-side
-                .box-topic Total Sales
-                .number #{sales}
+              .box-topic Total Sales
+              .number #{sales}
             .box
-                .right-side
-                .box-topic Credit Sales
-                .number #{credit}
+              .box-topic Credit Sales
+              .number #{credit}
             .box
-                .right-side
-                .box-topic Total Revenue
-                .number #{totalSales}   
+              .box-topic Total Revenue
+              .number #{totalSales}
+              
   script.
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
