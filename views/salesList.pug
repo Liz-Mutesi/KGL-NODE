@@ -53,7 +53,7 @@ body
     .container
         h3(style='color:rgb(0, 128, 0, 0.973)') #{branch} Branch
         h5 Hello, #{name}
-        h3(style="color: rgb(0, 128, 0, 0.973); text-align:center") Cash Sales List
+        h3(style="color: rgb(0, 128, 0, 0.973); text-align:center" id='cashtitle') Cash Sales List
         p Total Sales: #{totalSales.totalRevenue}
         p Total Sales in KGs: #{totalSales.totalTonnage}
         //- p Difference: #{totalPurchases.totalTonnage} - #{totalSales.totalTonnage}

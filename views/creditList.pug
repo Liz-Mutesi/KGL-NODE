@@ -45,6 +45,7 @@ body
                     span.material-symbols-sharp
                         | description
                     span.links_name Generate Invoice
+            br
             li.log_out
                 a(href='/logout')
                     span.material-symbols-sharp
@@ -52,16 +53,16 @@ body
                     span.links Log out
             .container-list
                 h3 KARIBU GROCERIES
-                h3 Jinja Branch
+                h3 #{branch} Branch
                 br
                 h5 Hello, #{name}
                 h3(style="text-align:center" id='title') Credit List
             if creditSale.length
                 table.table(id='credit-table')
                     thead.thead-dark
-                        tr(style='background-color: rgb(204, 202, 202);')
+                        tr(style='background-color: rgb(204, 202, 202); height:50px;')
                             //th(scope='col') credit No.
-                            th(scope='col') Customer
+                            th(scope='col' style='height:50px') Customer
                             th(scope='col') ID No.
                             th(scope='col') Location
                             th(scope='col') Contact
@@ -108,10 +109,7 @@ body
                 br
                 a(href='/sale') Sales Dashboard
             else
-                p There are no registered credit sales posted              
-            br                   
-            a.btn.btn-warning(href="/logout") Log out
-            
+                p There are no registered credit sales posted                  
        
     script(src='/js/credit.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa' crossorigin='anonymous')

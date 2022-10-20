@@ -57,12 +57,21 @@
   background-color: #fff;
   color:rgba(0, 128, 0, 0.973);
 } 
+.sidebar .nav-links li a:hover{
+  color:rgba(0, 128, 0, 0.973);
+} 
 
 .sidebar .nav-links li i{
   min-width: 60px;
   text-align: center;
   font-size: 18px;
   color: #fff;
+}
+.sidebar .nav-links li i:hover{
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+  color:rgba(0, 128, 0, 0.973)
 }
 .sidebar .nav-links li a .links{
   color: #fff;

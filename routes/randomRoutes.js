@@ -93,7 +93,6 @@ const upload = multer({
         sales: (cashSales[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
         products: (purchases[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
         totalSales: total.toLocaleString("en", {style : "currency", currency:"UGX"})
-
      })
 })
  router.get("/managerDash",connectEnsureLogin.ensureLoggedIn(), isManager, async(req, res) => {
@@ -108,8 +107,15 @@ const upload = multer({
                 branch:"Mubende"
             })
         }
+        const purchasesmgr = await productModel.aggregate([{
+            "$group": {
+                _id:"$all",
+                amount:{$sum:"$amount"}
+            }
+        }])
      res.render("managerDash", {
-        product : productList
+        product : productList,
+        totalProducts: (purchasesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
      })
     } catch (error) {
         

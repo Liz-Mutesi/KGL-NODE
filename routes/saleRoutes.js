@@ -90,8 +90,26 @@ async (req, res) => {
 router.get("/credit-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res)=> {
     try{
-        let creditSale = await creditSaleModel.find()
-        res.render("creditList", {creditSale : creditSale})
+        let creditSale = await creditSaleModel.find({
+            branch: req.user.branch})
+        let name = req.user.firstname
+        let branch = req.user.branch
+        let totalCredits = await creditSaleModel.aggregate([
+            {
+                '$group':{
+                    _id:'$all',
+                    totalCredit:{$sum:'$amountDue'},
+                    totalTonnage: {$sum:'$quantity'}
+                }
+            }
+        ])
+        res.render("creditList", {
+            creditSale : creditSale,
+            totalCredits : totalCredits[0],
+            name : name,
+            branch
+        })
+
 
     }
     catch(err){
@@ -173,7 +191,7 @@ async (req, res)=>{
 router.post("/credit-list", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res)=>{
     try{
-        await saleModel.deleteOne({
+        await creditSaleModel.deleteOne({
             _id: req.body._id 
         })
         res.redirect("/sale/credit-list")

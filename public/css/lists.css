@@ -1,63 +1,78 @@
 body {
     height: 100%;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 0px;
 }
 .container {
     position: relative;
     width: (100% - 220px);
-    margin-left: 232px;
+    margin-left: 240px;
     /* padding-left: 10%; */
     margin-top: 0px;
     background-color: #f4f4f4;
-    
+  
 }
 .container-list {
     position: relative;
     width: (100% - 220px);
     margin-left: 232px;
-    /* padding-left: 10%; */
     margin-top: -34rem;
     background-color: #f4f4f4;
 }
 table {
     width: (100%-226px);
-    margin-left: -1px;
+    margin-left: -10px;
     border: 1px solid;
     margin-top: 0;
-    
+    font-size: 14px;
 }
 #credit-table {
     width: (100%-220px);
     margin-left: 13rem;
     border: 1px solid;
     margin-top: 0;
-    
+    font-size: 14px;
+    overflow: scroll;
 }
 th {
     color: rgb(0, 128, 0, 0.973);
-    border-top: 1px solid;
-   
+    border-top: 1px solid; 
 }  
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 0;
     border-bottom: 1px solid;
-
-    
+    white-space: nowrap;
 }
-
 tr:nth-child(even) {
     background-color: rgb(204, 202, 202);
 }
 
 h3 {
     color: rgb(0, 128, 0, 0.973);
+    font-size: 18px;
+    white-space: nowrap;
+}
+h5 {
+    color: rgb(0, 128, 0, 0.973);
+    font-size: 18px;
+    white-space: nowrap;
 }
 #title{
     color: rgb(0, 128, 0, 0.973);
-    float: right;
-    margin-right: -60px;
+    margin-left: 25rem;
+    text-decoration: underline;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 500px;
+}
+#cashtitle{
+    color: rgb(0, 128, 0, 0.973);
+    margin-left: 2rem;
+    text-decoration: underline;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 500px;
 }
 p{
     font-weight:900;

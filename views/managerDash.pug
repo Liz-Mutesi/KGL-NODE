@@ -5,6 +5,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
   link(rel='stylesheet' href='/css/directorDash.css')
+  link(rel='stylesheet' href='/css/managerDash.css')
   link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet')
   link(rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
   title Karibu Groceries Ltd
@@ -77,7 +78,26 @@ body
                 .box
                     .chart(data-percent='81') 81%
                         h2 Annual Target
-        
+        .container
+            .home-content
+            .overview-boxes
+                .box
+                    .right-side
+                        .box-topic Total Purchases
+                        .numbers #{totalProducts} 
+                .box
+                    .right-side
+                        .box-topic Cash Sales
+                        .numbers #{sales}
+                .box
+                    .right-side
+                        .box-topic Credit Sales
+                        .numbers #{credit}
+                .box
+                    .right-side
+                        .box-topic Total Revenue
+                        .numbers #{totalSales}   
+            
 
 
 script(src='/js/bootstrap.min.js')
