@@ -13,7 +13,7 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-credit' name='RegForm' onsubmit='return validateForm()')
+                    form(method='POST' action='/sale/new-credit' name='RegForm' onsubmit='return validateForm();')
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
@@ -22,53 +22,51 @@ html(lang="en")
                                     option(value="Jinja") Jinja
                                     option(value="Mubende") Mubende
                         .mb-3.row
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='buyer') Customer
                                 input#buyer.form-control(type='text' name='buyer')
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='nin') NIN
                                 input#nin.form-control(type='text' name='nin')
-                        .mb-3.row
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='location') Location
                                 input#location.form-control(type='text' name='location')
-                            .col-md-6
+                        .mb-3.row
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='contact') Contact
                                 input#contact.form-control(type='number' name='contact')
-                        .mb-3.row
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='itemName') Item
                                 select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
                                     option(value="" selected disabled) Select Item
                                     each product in productList
-                                        option(value=product.itemName data-price=product.price) #{product.itemName}    
-                            .col-md-6
+                                        option(value=product.itemName data-price=product.price) #{product.itemName}
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='type') Type
                                 input#type.form-control(type='text' name='type')
                         .mb-3.row
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
                                 input#quantity.form-control(type='number' name='quantity')
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='price') Price
                                 input#price.form-control(type='number' name='price')
-                        .mb-3.row
-                            .col-md-6
+                            .col-md-4
                                 label.col-sm-2.col-form-label(for='amount') Amount Due
                                 input#amount.form-control(type='number' name='amount')
-                            .col-md-6
-                                label.col-sm-2.col-form-label(for='dispatchDate') Dispatch Date
-                                input#date.form-control(type='date' name='dueDate')
                         .mb-3.row
-                            .col-md-6
-                                label.col-sm-2.col-form-label(for='agent') Sales Agent
-                                input#agent.form-control(type='text' name='agent')
-                            .col-md-6
-                                label.col-sm-2.col-form-label(for='dueDate') Due Date
+                            .col-md-4
+                                label.col-sm-2.col-form-label(for='dispatchDate') Dispatch Date
                                 input#date.form-control(type='date' name='dispatchDate')
+                            .col-md-4
+                                label.col-sm-2.col-form-label(for='agent') Sold By
+                                input#agent.form-control(type='text' name='agent')
+                            .col-md-4
+                                label.col-sm-2.col-form-label(for='dueDate') Due Date
+                                input#date.form-control(type='date' name='dueDate')
                             
 
-                        button.btn.btn-primary(type='submit' value='submit' name='submit' onclick='validateForm()') Submit
+                        button.btn.btn-primary(type='submit' value='submit' name='submit' onclick='validateForm();') Submit
                                 br
                     a(href='/sale') Sales Dashboard
                     br
