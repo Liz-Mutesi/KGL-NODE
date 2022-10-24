@@ -50,7 +50,7 @@ function validateForm() {
 
     }
     if (nin.value === "" || !ninRegex.test(nin.value)) {
-        //alert("Please enter valid NIN");
+        alert("Please enter valid NIN");
         nin.style.border = "2px solid red";
         nin.focus();
         return false;
