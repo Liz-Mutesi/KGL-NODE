@@ -1,0 +1,74 @@
+link#bootstrap-css(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet')
+script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+script(src='//code.jquery.com/jquery-1.11.1.min.js')
+// ---- Include the above in your HEAD tag --------
+.container
+  .row
+    .well.col-xs-10.col-sm-10.col-md-6.col-xs-offset-1.col-sm-offset-1.col-md-offset-3
+      .row
+        .col-xs-6.col-sm-6.col-md-6
+          address
+            strong Elf Cafe
+            br
+            |                         2135 Sunset Blvd
+            br
+            |                         Los Angeles, CA 90026
+            br
+            abbr(title='Phone') P:
+            |  (213) 484-6829
+        .col-xs-6.col-sm-6.col-md-6.text-right
+          p
+            em Date: 1st November, 2013
+          p
+            em Receipt #: 34522677W
+      .row
+        .text-center
+          h1 Receipt
+        table.table.table-hover
+          thead
+            tr
+              th Product
+              th #
+              th.text-center Price
+              th.text-center Total
+          tbody
+            tr
+              td.col-md-9
+                em Baked Rodopa Sheep Feta
+              td.col-md-1(style='text-align: center')  2 
+              td.col-md-1.text-center $13
+              td.col-md-1.text-center $26
+            tr
+              td.col-md-9
+                em Lebanese Cabbage Salad
+              td.col-md-1(style='text-align: center')  1 
+              td.col-md-1.text-center $8
+              td.col-md-1.text-center $8
+            tr
+              td.col-md-9
+                em Baked Tart with Thyme and Garlic
+              td.col-md-1(style='text-align: center')  3 
+              td.col-md-1.text-center $16
+              td.col-md-1.text-center $48
+            tr
+              td  &nbsp; 
+              td  &nbsp; 
+              td.text-right
+                p
+                  strong Subtotal:&nbsp;
+                p
+                  strong Tax:&nbsp;
+              td.text-center
+                p
+                  strong $6.94
+                p
+                  strong $6.94
+            tr
+              td  &nbsp; 
+              td  &nbsp; 
+              td.text-right
+                h4
+                  strong Total:&nbsp;
+              td.text-center.text-danger
+                h4
+                  strong $31.53

@@ -33,3 +33,8 @@ const cashSalesmgr = await saleModel.aggregate([{
     totalcredit: (creditSalesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
         mgrSales: (cashSalesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
         totalSalesmgr: total.toLocaleString("en", {style : "currency", currency:"UGX"})
+
+
+/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,25}$
+
+^[0-9]{3,}$

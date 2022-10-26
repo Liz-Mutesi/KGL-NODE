@@ -12,7 +12,7 @@ html(lang="en")
             br
             .row
                 .offset-md-3.col-md-6
-                    form(method='POST' action='/sale/new-order', onsubmit='saleValidateForm(', name='salesForm' id='salesForm')
+                    form(method='POST' action='/sale/new-order', onsubmit='saleValidateForm()', name='salesForm' id='salesForm')
                         p {{sale1}}
                         .mb-3.row
                             .col-md-6
@@ -23,7 +23,7 @@ html(lang="en")
                                     option(value="Mubende") Mubende
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='buyer') Customer
-                                input#buyer.form-control(type='text' name='buyer')
+                                input#buyer.form-control(type='text' name='buyer' required)
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='itemName') Item
                                 select.form-control#itemName(name="itemName", type='text', style='padding:10px' required)
@@ -33,17 +33,17 @@ html(lang="en")
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='quantity') Quantity
-                                input#quantity.form-control(type='number' name='quantity')
+                                input#quantity.form-control(type='number' name='quantity' required)
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='price') Price
                                 input#price.form-control(type='number' name='price' readonly)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='amount') Amount
-                                input#amount.form-control(type='number' name='amount' v-model='sale1')
+                                input#amount.form-control(type='number' name='amount' v-model='sale1' )
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='agent') Sales Agent
-                                input#agent.form-control(type='text' name='agent')
+                                input#agent.form-control(type='text' name='agent' required)
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='date') Date

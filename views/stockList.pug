@@ -60,13 +60,10 @@ body
                             td
                                 a(href="/stock/editProduct/"+stock._id)
                                     span.material-symbols-sharp(style='color: rgb(248, 244, 12)')
-                                            | edit
-            .div                       
-                a.btn.btn-warning(href='/stock/stock-form') Record Another Purchase
-                br
-                a.btn.btn-warning(href='/stock') Purchase Dashboard
-                br
-                a.btn.btn-warning(href="/logout") Log out
+                                            | edit                       
+                        a(href='/stock/new-stock') Record Another Purchase
+                        br
+                        a(href='/stock') Purchase Dashboard
         else
             p No items listed
         

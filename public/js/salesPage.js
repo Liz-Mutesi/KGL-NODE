@@ -1,4 +1,5 @@
 function saleValidateForm() {
+    let branch = document.forms["salesForm"]["branch"];
     let buyer = document.forms["salesForm"]["buyer"];
     let itemName = document.forms["salesForm"]["itemName"];
     let quantity = document.forms["salesForm"]["quantity"];
@@ -11,21 +12,32 @@ function saleValidateForm() {
 
 
 
+    branchRegex = /^[A-Za-z]+$/
     buyerRegex = /^[A-Za-z]{2,}+ [A-Za-z]+$/
     itemName = /^[A-Za-z]+$/
-    quantityRegex = /^[0-9]{3,}*$/
-    priceRegex = /^[0-9]{3,}*$/
+    quantityRegex = /^[0-9]{3,}+$/
+    priceRegex = /^[0-9]{3,}+$/
     typeRegex = /^[A-Za-z0-9]+$/
-    amountRegex = /^[0-9]{5,}*$/
+    amountRegex = /^[0-9]{5,}+$/
     agentRegex = /^[A-Za-z]{2,}+ [A-Za-z]+$/
     //dateRegex = ^[0-9]{2}[-|\/]{1}[0-9]{2}[-|\/]{1}[0-9]{4}
-    timeRegex = ^[0-9]{2}[:]{1}[0-9]{2}
+    //timeRegex = ^[0-9]{2}[:]{1}[0-9]{2}
 
     alphaNumeric = /^[A-Za-z0-9]+$/
 
     
-    if (buyer.value === "" || !buyerRegex.test(buyer.value)) {
+    if (branch.value === "" || !branchRegex.test(branch.value)) {
         //alert("Please enter customer name");
+        branch.style.border = "2px solid red";
+        branch.focus();
+        return false;
+    }
+    else {
+        branch.style.border = "2px solid green";
+
+    }
+    if (buyer.value === "" || !buyerRegex.test(buyer.value)) {
+        alert("Please enter customer name");
         buyer.style.border = "2px solid red";
         buyer.focus();
         return false;
@@ -98,6 +110,14 @@ function saleValidateForm() {
         date.focus()
     } else {
         date.style.border = "2px solid green";
+
+    }
+    if (time.value === "") {
+        time.style.border = "2px solid red";
+        alert("Date can not be empty")
+        time.focus()
+    } else {
+       time.style.border = "2px solid green";
 
     }
 
