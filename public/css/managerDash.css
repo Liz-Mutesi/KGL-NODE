@@ -3,17 +3,30 @@
   display:inline-block;
   align-items: center;
   justify-content: center;
-  width: calc(100% / 4 - 15px);
+  width: calc(100% / 3 - 15px);
   background: #fff;
   padding: 15px 14px;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   height: 150px;
   margin-right: 12px;
+  margin-top: 5px;
+}
+.overview-boxes .box2{
+  display:inline-block;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 3 - 15px);
+  background: #fff;
+  padding: 15px 14px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  height: 150px;
+  margin-right: 12px;
+  margin-top: 10px;
 }
 .overview-boxes .box-topic{
   font-size: 22px;
-  font-weight: 500;
   margin-top: 2px;
   color:rgba(0, 128, 0, 0.973) ;
 }
@@ -21,5 +34,10 @@
   font-size: 24px;
   font-weight: 500;
   margin-top: 4px;
-  color:rgba(0, 128, 0, 0.973) ;
+}
+.overview-boxes .box .numbers{
+  font-size: 18px;
+  margin-top: 6px;
+  margin-left: 5rem;
+  margin-top: 20px;
 }

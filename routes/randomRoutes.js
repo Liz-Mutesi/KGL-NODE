@@ -113,6 +113,12 @@ router.get("/managerDash", connectEnsureLogin.ensureLoggedIn(), isManager, async
                 amount: { $sum: "$amount" }
             }
         }])
+        const qtySold = await saleModel.aggregate([{
+            "$group": {
+                _id: "$all",
+                amount: { $sum: "$quantity" }
+            }
+        }])
         const cashSalesmgr = await saleModel.aggregate([{
             "$group": {
                 _id: "$all",
@@ -125,13 +131,23 @@ router.get("/managerDash", connectEnsureLogin.ensureLoggedIn(), isManager, async
                 amount: { $sum: "$amount" }
             }
         }])
+        const totalSales = await saleModel.aggregate([
+            {
+                '$group':{
+                    _id:'$all',
+                    totalTonnage: {$sum:'$quantity'}
+                }
+            }
+        ])
         //const mgrTotal = (creditSalesmgr.length > 0 && cashSalesmgr.length > 0) ?creditSalesmgr[0].amount + cashSalesmgr[0].amount : 0 
 
         res.render("managerDash", {
             product: productList,
+            totalSales: totalSales[0],
             totalProducts: (purchasesmgr[0].amount).toLocaleString("en", { style: "currency", currency: "UGX" }),
             mgrSales: (cashSalesmgr[0].amount).toLocaleString("en", { style: "currency", currency: "UGX" }),
             creditSales: (creditSalesmgr[0].amount).toLocaleString("en", { style: "currency", currency: "UGX" }),
+            tonnageSold: (qtySold[0].quantity),
             //mgrTotal: (mgrTotal[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
         })
     } catch (error) {

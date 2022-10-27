@@ -1,12 +1,13 @@
 const express = require("express")
 const stockModel = require("../models/stockModel")
-const{isManager} = require('../authz/authorization')
+const productModel = require("../models/productModel")
+const{isManager, isManagerOrSalesAgent} = require('../authz/authorization')
 const connectEnsureLogin = require("connect-ensure-login");
 
 
 const router = express.Router()
 
-router.get("/", connectEnsureLogin.ensureLoggedIn(), isManager,
+router.get("/", connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent,
 async (req, res) => {
     const stock = await stockModel.find({})
     res.render("stock", {
@@ -16,11 +17,32 @@ async (req, res) => {
 })
 router.get("/new-stock",connectEnsureLogin.ensureLoggedIn(), isManager, 
  async (req, res) => {
-    const stockList = await stockModel.find({branch:req.user.branch})
+    const productList = await productModel.find({branch:req.user.branch})
     res.render("stockForm", {
         title: "New Stock",
-        stockList
+        stockList,
+        productList
     })
+})
+// router.get("/new-order",connectEnsureLogin.ensureLoggedIn(), isManagerOrSalesAgent, 
+//  async (req, res) => {
+//     const productList = await productModel.find({branch:req.user.branch})
+//     res.render("createSale", {
+//         title: "New Order",
+//         productList
+//     })
+// })
+router.post("/new-order", async (req, res)=> {
+    try{
+        const newOrder = new saleModel(req.body)
+        await newOrder.save()
+        res.redirect("/sale/new-order")
+        console.log(req.body)
+    }
+    catch(err){
+        res.status(400).render("createSale")
+        
+    }
 })
 
 //error handling(try....catch)

@@ -53,14 +53,10 @@
   background: #fff;
   color:rgba(0, 128, 0, 0.973); 
 } */
-.sidebar .nav-links li a:hover{
+/* .sidebar .nav-links li a:hover{
   background-color: #fff;
   color:rgba(0, 128, 0, 0.973);
-} 
-.sidebar .nav-links li a:hover{
-  color:rgba(0, 128, 0, 0.973);
-} 
-
+}  */
 .sidebar .nav-links li i{
   min-width: 60px;
   text-align: center;

@@ -70,37 +70,27 @@ body
         .home-content
             .overview-boxes
                 .box
-                    .chart(data-percent='90') 90%
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Sales
+                    h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Sales
+                    numbers ........
                 .box
-                    .chart(data-percent='72') 72%
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Quaterly Sales
+                    h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Quaterly Sales
+                    .numbers ........
                 .box
-                    .chart(data-percent='81') 81%
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Annual Target
-                .box
-                    .chart(data-percent='81') 81%
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Total Tonnage Sold
+                    h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Total Tonnage Sold
+                    .numbers #{totalSales.totalTonnage} Kgs
         .container
             .home-content
             .overview-boxes
-                .box
-                    .right-side
-                        .box-topic Total Purchases
-                        .numbers #{totalProducts} 
-                .box
-                    .right-side
-                        .box-topic Cash Sales
-                        .numbers #{mgrSales}
-                .box
-                    .right-side
-                        .box-topic Credit Sales
-                        .numbers #{creditSales}
-                //- .box
-                //-     .right-side
-                //-         .box-topic Total Revenue
-                //-         .numbers #{mgrTotal}   
-            
+                .box2
+                    .box-topic Total Purchases
+                    .numbers #{totalProducts} 
+                .box2
+                    .box-topic Cash Sales
+                    .numbers #{mgrSales}
+                .box2
+                    .box-topic Credit Sales
+                    .numbers #{creditSales}
+
 
 
 script(src='/js/bootstrap.min.js')
