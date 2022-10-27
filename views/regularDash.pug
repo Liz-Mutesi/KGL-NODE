@@ -7,100 +7,84 @@ html(lang="en")
         link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.min.css')
         link(href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet')
         link(rel='stylesheet' href='/css/directorDash.css')
-        link(rel='stylesheet' href='/css/regular.css')
+        link(rel='stylesheet' href='/css/managerDash.css')
         link(rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
         title Karibu Groceries
     body
-        .sidebar
-            .logo-details
-                i.bx.bx
-                img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
-                span.logo_name 
-            ul.nav-links
-                li
-                    a.active(href='/regularDash' id='sideNav1')
-                        span.material-symbols-sharp
-                            | grid_view
-                        span.links Dashboard
-                li
-                    a(href='/sale/new-order')
-                        span.material-symbols-sharp
-                            | receipt_long
-                        span.links Record Cash Sale
-                li
-                    a(href='/sale/new-order')
-                        span.material-symbols-sharp
-                            | credit_card
-                        span.links Record Credit Sale
-                li
-                    a(href='#')
-                        span.material-symbols-sharp
-                            | list
-                        select#sales-link
-                            option(value="" selected disabled) Sales Lists
-                            //option(value="")
-                            option(value="Cash" data-link="/sale/sales-list") Cash Sales 
-                                
-                            option(value="Credits" data-link="/sale/credit-list") Credit Sales
-                        span.links 
-                li
-                    a(href='#')
-                        span.material-symbols-sharp
-                            | people
-                        span.links Customers
-                li
-                    a(href='#')
-                        span.material-symbols-sharp
-                            | inventory
-                        span.links_name Stock
-                li
-                    a(href='#')
-                        span.material-symbols-sharp
-                            | receipt
-                        span.links_name Generate Receipt
-                li
-                    a(href='/invoice')
-                        span.material-symbols-sharp
-                            | description
-                        span.links_name Generate Invoice
-                li.log_out
-                    a(href='/logout')
-                        span.material-symbols-sharp
-                            | logout
-                        span.links Log out
-        section.home-section
-            nav
-                .sidebar-button
-                    i.bx.bx-menu.sidebarBtn
-                    span.dashboard Dashboard
-                .search-box
-                    input(type='text' placeholder='Search...')
-                    i.bx.bx-search
-                .profile-details
-                    // <img src="images/profile.jpg" alt="">
-                    span.admin_name Welcome,  #{user.firstname}
+    .sidebar
+        .logo-details
+            i.bx.bx
+            img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
+            span.logo_name
+        ul.nav-links
+            li
+                a.active(href='/regularDash' id='sideNav1')
+                    span.material-symbols-sharp
+                        | grid_view
+                    span.links Dashboard
+            li
+                a(href='/sale')
+                    span.material-symbols-sharp
+                        | receipt_long
+                    span.links Sales
+            li
+                a(href='#')
+                    span.material-symbols-sharp
+                        | people
+                    span.links Customers
+            li
+                a(href='#')
+                    span.material-symbols-sharp
+                        | person
+                    span.links Suppliers
+            li
+                a(href='/stock-list')
+                    span.material-symbols-sharp
+                        | inventory
+                    span.links_name Stock
+            li
+                a(href='#')
+                    span.material-symbols-sharp
+                        | report
+                    span.links_name Reports
+            li.log_out
+                a(href='/logout')
+                    span.material-symbols-sharp
+                        | logout
+                    span.links Log out
+    section.home-section
+        nav
+            .sidebar-button
+                i.bx.bx-menu.sidebarBtn
+                span.dashboard Dashboard
+            .search-box
+                input(type='text' placeholder='Search...')
+                i.bx.bx-search
+            .profile-details
+                // <img src="images/profile.jpg" alt="">
+                span.admin_name Hello #{user.firstname}
+        .home-content
+            .overview-boxes
+                .box
+                    h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Sales
+                    numbers ........
+                .box
+                    h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Target
+                    .numbers ........
+                .box
+                    h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Total Tonnage Sold
+                    .numbers ...... Kgs
+        .container
             .home-content
-                .overview-boxes
-                    .box
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Sales
-                        numbers ........
-                    .box
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Quaterly Sales
-                        .numbers ........
-                    .box
-                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Total Tonnage Sold
-                        .numbers .....
-            .home-content
-                .overview-boxes
-                    .box1
-                        .box-topic Total Sales
-                        .numbers #{agentTotalSales} 
-                    .box1
-                        .box-topic Cash Sales
-                        .numbers #{cashSalesagent}
-                    .box1
-                        .box-topic Credit Sales
-                        .numbers #{creditSalesagent}
+            .overview-boxes
+                .box2
+                    .box-topic Total Cash Sales
+                    .numbers #{cashSalesagent}
+                .box2
+                    .box-topic Total Credit Sales
+                    .numbers #{creditSalesagent}
+
+
 
 script(src='/js/bootstrap.min.js')
 script.
@@ -114,4 +98,3 @@ script.
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
   }
 script(src="/js/sale.js")
-   

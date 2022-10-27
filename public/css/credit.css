@@ -1,39 +1,107 @@
-.regForm {
-    margin-left: 70px;
-    font-weight: bold;
-    text-align: left;
-    font-family: sans-serif, bold, Arial, Helvetica;
-    font-size: 14px;
-  }
-  .buttons {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  div input {
-    margin-right: 10px;
-  }
-  form {
-    margin: 0 auto;
-    width: 600px;
-  }
-  form input {
-    padding: 10px;
-  }
-  form select {
-    background-color: #ffffff;
-    padding: 5px;
-  }
-  form label {
-    display: block;
-    width: 100%;
-    margin-bottom: 5px;
-  }
-  input[type=submit]:hover {
-    background-color: #1c60f1;
-    color: #ffffff;
-    border: none;
-    border-radius: 10%;
-    font-size: 18px;
-    font-weight: 500;
+body {
+  height: 100%;
+  width: 100%;
+  margin-top: 0px;
+}
+.container {
+  position: relative;
+  width: (100% - 220px);
+  margin-left: 240px;
+  /* padding-left: 10%; */
+  margin-top: 0px;
+  background-color: #f4f4f4;
+
+}
+.container-list {
+  position: relative;
+  width: (100% - 220px);
+  margin-left: 232px;
+  margin-top: -34rem;
+  background-color: #f4f4f4;
+}
+table {
+  width: (100%-226px);
+  margin-left: -10px;
+  border: 1px solid;
+  margin-top: 0;
+  font-size: 10px;
+  margin-top: -10px;
+}
+#credit-table {
+  width: (100%-220px);
+  margin-left: 13rem;
+  border: 1px solid;
+  margin-top: -10;
+  font-size: 11px;
+  overflow: scroll;
+}
+th {
+  color: rgb(0, 128, 0, 0.973);
+  border-top: 1px solid; 
+}  
+th, td {
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid;
+  white-space: nowrap;
+}
+tr:nth-child(even) {
+  background-color: rgb(204, 202, 202);
+}
+
+h3 {
+  color: rgb(0, 128, 0, 0.973);
+  font-size: 18px;
+  white-space: nowrap;
+}
+h5 {
+  color: rgb(0, 128, 0, 0.973);
+  font-size: 18px;
+  white-space: nowrap;
+}
+#title{
+  color: rgb(0, 128, 0, 0.973);
+  margin-left: 25rem;
+  text-decoration: underline;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500px;
+}
+#cashtitle{
+  color: rgb(0, 128, 0, 0.973);
+  margin-left: 2rem;
+  text-decoration: underline;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 500px;
+}
+p{
+  font-weight:900;
+}
+a #newcredit{
+  display: inline-block;
+  margin-left: 20px;
+}
+div a.btn.btn {
+  text-align: center;
+  padding-top: 2x;
+  display:inline-block;
+  padding-left: 5px;
+ 
+}
+.sidebar .logo-img{
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  margin-top: 2.6rem;
+  align-items: center;
+  margin-left: 1.5rem;
+}
+.sidebar #sideNav1{
+  margin-top: 4rem;
+}
+#neworder{
+  padding-right: 3px;
+  margin-left: 3px;
+  float: right;
 }

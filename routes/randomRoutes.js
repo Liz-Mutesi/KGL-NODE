@@ -197,6 +197,8 @@ router.get("/regularDash", connectEnsureLogin.ensureLoggedIn(), isSalesAgent, as
                 amount: { $sum: "$amount" }
             }
         }])
+    
+        
         //const agentTotalSales = (creditSalesagent.length > 0 && cashSalesagent.length > 0) ?creditSalesagent[0].amount + cashSalesagent[0].amount : 0 
         res.render("regularDash", {
             sale: salesList,

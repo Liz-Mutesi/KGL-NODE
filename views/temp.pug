@@ -1,38 +1,109 @@
-const cashSalesmgr = await saleModel.aggregate([{
-            "$group": {
-                _id:"$all",
-                amount:{$sum:"$amount"}
-            }
-        }])
-        const JinjaMgrCreditSales = await creditSaleModel.aggregate([
-            {
-                $match: { branch: "Jinja" }
-             },
-          
-            {
-            "$group": {
-                _id:"$all",
-                amount:{$sum:"$amount"}
-            }
-        }])
-        const MubendeMgrCreditSales = await creditSaleModel.aggregate([
-            {
-                $match: { branch: "Mubende" }
-             },
-          
-            {
-            "$group": {
-                _id:"$all",
-                amount:{$sum:"$amount"}
-            }
-        }])
-        const total = (mgrCreditSales.length > 0 && cashSalesmgr.length > 0) ?mgrCreditSales[0].amount + cashSalesmgr[0].amount : 0 
-    console.log(mgrCreditSales)
+body
+        .sidebar
+            .logo-details
+                i.bx.bx
+                img(src="/images/KARIBU.jpg", alt="logo", class='logo-img')
+                span.logo_name 
+            ul.nav-links
+                li
+                    a.active(href='/regularDash' id='sideNav1')
+                        span.material-symbols-sharp
+                            | grid_view
+                        span.links Dashboard
+                li
+                    a(href='/sale/new-order')
+                        span.material-symbols-sharp
+                            | receipt_long
+                        span.links Record Cash Sale
+                li
+                    a(href='/sale/new-order')
+                        span.material-symbols-sharp
+                            | credit_card
+                        span.links Record Credit Sale
+                li
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | list
+                        select#sales-link
+                            option(value="" selected disabled) Sales Lists
+                            //option(value="")
+                            option(value="Cash" data-link="/sale/sales-list") Cash Sales 
+                                
+                            option(value="Credits" data-link="/sale/credit-list") Credit Sales
+                        span.links 
+                li
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | people
+                        span.links Customers
+                li
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | inventory
+                        span.links_name Stock
+                li
+                    a(href='#')
+                        span.material-symbols-sharp
+                            | receipt
+                        span.links_name Generate Receipt
+                li
+                    a(href='/invoice')
+                        span.material-symbols-sharp
+                            | description
+                        span.links_name Generate Invoice
+                li.log_out
+                    a(href='/logout')
+                        span.material-symbols-sharp
+                            | logout
+                        span.links Log out
+        section.home-section
+            nav
+                .sidebar-button
+                    i.bx.bx-menu.sidebarBtn
+                    span.dashboard Dashboard
+                .search-box
+                    input(type='text' placeholder='Search...')
+                    i.bx.bx-search
+                .profile-details
+                    // <img src="images/profile.jpg" alt="">
+                    span.admin_name Welcome,  #{user.firstname}
+            .home-content
+                .overview-boxes
+                    .box1
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Monthly Sales
+                        numbers ........
+                    .box1
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Quaterly Sales
+                        .numbers ........
+                    .box1
+                        h2(id='mgrh2', style='font-size:24px; color:rgba(0, 128, 0, 0.973)') Total Tonnage Sold
+                        .numbers .........
+            .home-content
+                .overview-boxes
+                    .box2
+                        .box-topic Total Purchases
+                        .numbers #{totalProducts} 
+                    .box2
+                        .box-topic Cash Sales
+                        .numbers #{mgrSales}
+                    .box2
+                        .box-topic Credit Sales
+                        .numbers #{creditSales}
 
 
-    totalcredit: (creditSalesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
-        mgrSales: (cashSalesmgr[0].amount).toLocaleString("en", {style : "currency", currency:"UGX"}),
-        totalSalesmgr: total.toLocaleString("en", {style : "currency", currency:"UGX"})
+script(src='/js/bootstrap.min.js')
+script.
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+  }else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+script(src="/js/sale.js")
+   
 
 
 /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,25}$
