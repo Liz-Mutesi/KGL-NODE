@@ -17,10 +17,7 @@ html(lang="en")
                         .mb-3.row
                             .col-md-6
                                 label.col-sm-2.col-form-label(for='branch') Branch
-                                select.form-control#branch(name="branch", onsubmit='return validateForm()', style='padding:10px' required)
-                                    option(value="" selected disabled) Select Branch
-                                    option(value="Jinja") Jinja
-                                    option(value="Mubende") Mubende
+                                input.form-control#branch(name="branch", style='padding:10px'  value=user.branch  readonly)
                         .mb-3.row
                             .col-md-4
                                 label.col-sm-2.col-form-label(for='buyer') Customer
